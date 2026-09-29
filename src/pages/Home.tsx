@@ -103,7 +103,7 @@ export const Home: React.FC = () => {
   // Auto-advance Carousel
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 5);
+      setCurrentSlide((prev) => (prev + 1) % 4);
     }, 12000);
     return () => clearInterval(timer);
   }, []);
@@ -210,24 +210,6 @@ export const Home: React.FC = () => {
       pillClass: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
       btnClass: "bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 text-white shadow-emerald-500/30",
       cardBorder: "border-emerald-500/30",
-    },
-    {
-      brand: "CLEARANCE SALE",
-      origin: "India",
-      isFullBanner: true,
-      logo: "",
-      tagline: "",
-      headline: "",
-      description: "",
-      img: "/images/slider5.jpg",
-      badge: "",
-      ctaText: "",
-      ctaLink: "",
-      productSampleId: "",
-      bgClass: "",
-      pillClass: "",
-      btnClass: "",
-      cardBorder: "",
     },
   ];
 
