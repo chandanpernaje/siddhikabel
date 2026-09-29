@@ -457,7 +457,10 @@ export const Home: React.FC = () => {
 
                   {/* Right Side — Image / Media Container */}
                   <div className="lg:col-span-5 relative flex justify-center items-center z-10 w-full mt-6 lg:mt-0">
-                    <div className={`relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden border ${slide.cardBorder} shadow-2xl bg-slate-900/80 group`}>
+                    <div 
+                      className={`relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden border ${slide.cardBorder} shadow-2xl bg-slate-900/80 group cursor-pointer`}
+                      onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+                    >
                       <img src={slide.img} alt={slide.brand} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute bottom-0 inset-x-0 bg-slate-950/80 backdrop-blur-md p-3 px-4 border-t border-white/10 flex justify-between items-center text-xs font-semibold text-slate-300">
                         <span>{slide.brand}</span>
