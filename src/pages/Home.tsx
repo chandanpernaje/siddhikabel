@@ -363,7 +363,7 @@ export const Home: React.FC = () => {
                 return (
                   <div
                     key={slide.brand}
-                    className="relative w-full z-10 animate-in fade-in duration-500 cursor-pointer overflow-hidden bg-slate-950 flex items-center justify-center"
+                    className="relative w-full z-10 animate-in fade-in duration-500 cursor-pointer overflow-hidden bg-slate-950 flex items-center justify-center p-4 sm:p-8 md:p-12"
                     onClick={() => {
                       setSelectedCategory("all");
                       setSelectedBrand("all");
@@ -374,7 +374,7 @@ export const Home: React.FC = () => {
                       }, 100);
                     }}
                   >
-                    <img src={slide.img} alt="Clearance Sale" className="w-full h-auto max-h-[500px] lg:max-h-[600px] object-contain" />
+                    <img src={slide.img} alt="Clearance Sale" className="w-full h-auto max-h-[500px] lg:max-h-[600px] object-contain rounded-xl sm:rounded-2xl shadow-2xl" />
                   </div>
                 );
               }
