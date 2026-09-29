@@ -72,7 +72,7 @@ export const ProductDetail: React.FC = () => {
     return PRODUCTS_DATA[0];
   }, [productId]);
 
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState(product?.brand?.includes("LAPP") ? 25 : 1);
   const [selectedImg, setSelectedImg] = useState(product.image || "/images/cable-olflex-cores.png");
   const [rfqOpen, setRfqOpen] = useState(false);
   const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
@@ -87,7 +87,7 @@ export const ProductDetail: React.FC = () => {
     if (product.id === "lapp-cat-1") {
       navigate("/olflex-cables", { replace: true });
     } else if (product) {
-      setQty(1);
+      setQty(product.brand.includes("LAPP") ? 25 : 1);
       setSelectedImg(product.image || "/images/cable-olflex-cores.png");
     }
   }, [product, navigate]);
@@ -105,8 +105,7 @@ export const ProductDetail: React.FC = () => {
   const handleStepUp = () => {
     if (product.unit === "meter") {
       setQty((q) => {
-        if (q < 100) return 100;
-        if (q === 100 || q === 101 || q === 102 || q < 125) return 125;
+        if (q < 25) return 25;
         return Math.floor(q / 25) * 25 + 25;
       });
     } else {
@@ -117,10 +116,8 @@ export const ProductDetail: React.FC = () => {
   const handleStepDown = () => {
     if (product.unit === "meter") {
       setQty((q) => {
-        if (q > 125) return Math.ceil(q / 25) * 25 - 25;
-        if (q <= 125 && q > 100) return 100;
-        if (q === 100) return 75;
-        return Math.max(25, q - 25);
+        if (q <= 25) return 25;
+        return Math.ceil(q / 25) * 25 - 25;
       });
     } else {
       setQty((q) => Math.max(1, q - 1));
@@ -437,14 +434,26 @@ export const ProductDetail: React.FC = () => {
                 </div>
 
                 <div className="text-right">
-                  <span className="text-[11px] text-slate-400 font-bold block">
-                    GST Rate
+                  <span className="text-[11px] text-slate-400 font-bold block mb-1">
+                    Update Qty ({product.unit === 'meter' ? 'Mtrs' : 'Nos'})
                   </span>
-                  <span className="text-xs font-mono font-bold text-slate-800">
-                    18% (ITC Eligible)
-                  </span>
+                  <div className="flex items-center justify-end">
+                    <div className="flex items-center border border-slate-200 rounded-lg overflow-hidden shadow-sm bg-white">
+                      <button onClick={handleStepDown} className="px-3.5 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 font-bold border-r border-slate-200 transition-colors">-</button>
+                      <span className="px-4 py-1.5 text-sm font-bold font-mono text-slate-900 bg-white min-w-[3.5rem] text-center">{qty}</span>
+                      <button onClick={handleStepUp} className="px-3.5 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 font-bold border-l border-slate-200 transition-colors">+</button>
+                    </div>
+                  </div>
                 </div>
               </div>
+              
+              {product.unit === 'meter' && (
+                <div className="text-[10px] sm:text-[11px] text-amber-600 font-medium flex items-start gap-1 mt-2">
+                  <span className="text-amber-500 shrink-0">⚠️</span>
+                  <span>Caution: order Multiple of 10 Mtrs or 25 mtrs for all multicore</span>
+                </div>
+              )}
+
               {/* Dynamic Cost Projection */}
               <div className="pt-4 border-t border-slate-100 space-y-2 text-xs">
                 <div className="flex justify-between text-slate-600">
