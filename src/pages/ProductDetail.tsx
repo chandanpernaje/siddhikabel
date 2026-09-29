@@ -98,21 +98,33 @@ export const ProductDetail: React.FC = () => {
   React.useEffect(() => {
     if (product.brand.includes("LAPP") && selectedCore) {
       const coreNum = parseInt(selectedCore.split(' ')[0]) || 2;
+      const sizeNum = parseFloat(selectedSize.split(' ')[0]) || 0.5;
+      const sumHash = coreNum + sizeNum * 100; // unique enough index
+
+      // Authentic LAPP product images from e.lapp.com
       const images = [
-        "/images/cable-olflex-cores.png",
-        "/images/products/lapp-01.jpg",
-        "/images/products/lapp-02.jpg",
-        "/images/products/lapp-03.jpg",
-        "/images/products/lapp-04.jpg",
-        "/images/products/lapp-05.jpg",
-        "/images/products/lapp-06.jpg",
-        "/images/cable-olflex-angle.png"
+        "https://e.lapp.com/media/wysiwyg/OLFLEX_11.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/PbY69fQAPx2jbzbFLWJfwdvd-a9AiEdYbYYUvbrNCYM~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/PSJEYSpSwPlHnFF-lpM68WdZH4LF9jsH7rclnWxtZeM~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/EN2KMbDoEZCg_FD0D9IzzPI5QIGik6TS-fjcuKjvp0o~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/l226RQIO9d26Nb_87YS6mdKBc4s0fzmcxUk6uXlc5sY~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/5OILG9D2NXU-DmxaMYhFp6OL36Smk1VziSJvYQcFDWA~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/Ib2fY_XWT6H8uh7_b2NOlMIHhIMLeD8wNWXfsOedcfM~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/zXRgMuVfRgn1g-opCvBSZKGhLXYCRdUHCs_tSjAgZVs~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/3uslMUlDV0KDCAoc_UArzCGcCddjKAv5bqLnPICPLG0~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/v5VKLl89Hqf5UYY4wTbXWI4rI4JUg10N5kBAVLJOJ3A~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/7Xpi1vuBlWGibTwYyj0Jou1HDxMBnG2K7ScLPCQg9ZM~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/0L0kZmOzGLB281eBk7IWCabfUxaZuDrpBF_89NiySy8~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/9gSa0efisdBRoLm9czBhIy1RGq1j09haviQwSeM-SKU~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/HBMdVPVjxRiW9xzyIQrv4GxVbJXJTzcHugoSggvtVX8~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/ke_oT2_ms7wgMBZQ3n0b8v4A0BPB7QOSO1n71KyW7co~.jpg",
+        "https://e.lapp.com/media/catalog/product/e/lapp/tNgrNuMzBB9kOnJ6tn_kmMZheU8vDlyLeNo154Xcs1c~.jpg"
       ];
-      // Pick a deterministic image based on core number
-      const index = (coreNum) % images.length;
+      // Pick a deterministic image based on core number and size
+      const index = Math.floor(sumHash) % images.length;
       setSelectedImg(images[index]);
     }
-  }, [selectedCore, product.brand]);
+  }, [selectedCore, selectedSize, product.brand]);
   const handleStepUp = () => {
     if (product.unit === "meter") {
       setQty((q) => {
