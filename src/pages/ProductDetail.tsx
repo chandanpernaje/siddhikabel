@@ -97,11 +97,22 @@ export const ProductDetail: React.FC = () => {
 
   React.useEffect(() => {
     if (product.brand.includes("LAPP") && selectedCore) {
-      const coreNum = selectedCore.split(' ')[0];
-      setSelectedImg(`/images/cores/${coreNum}-core.png`);
+      const coreNum = parseInt(selectedCore.split(' ')[0]) || 2;
+      const images = [
+        "/images/cable-olflex-cores.png",
+        "/images/products/lapp-01.jpg",
+        "/images/products/lapp-02.jpg",
+        "/images/products/lapp-03.jpg",
+        "/images/products/lapp-04.jpg",
+        "/images/products/lapp-05.jpg",
+        "/images/products/lapp-06.jpg",
+        "/images/cable-olflex-angle.png"
+      ];
+      // Pick a deterministic image based on core number
+      const index = (coreNum) % images.length;
+      setSelectedImg(images[index]);
     }
   }, [selectedCore, product.brand]);
-
   const handleStepUp = () => {
     if (product.unit === "meter") {
       setQty((q) => {
