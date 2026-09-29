@@ -103,7 +103,7 @@ export const Home: React.FC = () => {
   // Auto-advance Carousel
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 4);
+      setCurrentSlide((prev) => (prev + 1) % 5); // 5 slides now
     }, 12000);
     return () => clearInterval(timer);
   }, []);
@@ -181,6 +181,24 @@ export const Home: React.FC = () => {
       btnClass: "bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 text-white shadow-emerald-500/30",
       cardBorder: "border-emerald-500/30",
     },
+    {
+      brand: "CLEARANCE SALE",
+      origin: "India",
+      isFullBanner: true,
+      logo: "",
+      tagline: "",
+      headline: "",
+      description: "",
+      img: "/images/slider4.jpg",
+      badge: "",
+      ctaText: "",
+      ctaLink: "",
+      productSampleId: "",
+      bgClass: "",
+      pillClass: "",
+      btnClass: "",
+      cardBorder: "",
+    }
   ];
 
   // Filter Catalog
@@ -340,6 +358,26 @@ export const Home: React.FC = () => {
             {slides.map((slide, idx) => {
               const isActive = idx === currentSlide;
               if (!isActive) return null;
+
+              if (slide.isFullBanner) {
+                return (
+                  <div
+                    key={slide.brand}
+                    className="relative w-full min-h-[460px] md:min-h-[500px] z-10 animate-in fade-in duration-500 cursor-pointer overflow-hidden"
+                    onClick={() => {
+                      setSelectedCategory("all");
+                      setSelectedBrand("all");
+                      setShowCatalog(true);
+                      setTimeout(() => {
+                        const catEl = document.getElementById("catalog");
+                        if (catEl) catEl.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }}
+                  >
+                    <img src={slide.img} alt="Clearance Sale" className="absolute inset-0 w-full h-full object-cover" />
+                  </div>
+                );
+              }
 
               return (
                 <div
