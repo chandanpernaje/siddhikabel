@@ -154,10 +154,15 @@ export const ProductDetail: React.FC = () => {
     const sizeMultiplier = sizeNum / 0.5;
     
     // To ensure price doesn't go crazy high for 52 cores, we add a simple dampening formula
-    const finalPrice = product.price * Math.pow(coreMultiplier, 0.85) * Math.pow(sizeMultiplier, 0.9);
+    let finalPrice = product.price * Math.pow(coreMultiplier, 0.85) * Math.pow(sizeMultiplier, 0.9);
+    
+    // Add a small 5% premium for the Yellow/Green (Earth) color option
+    if (selectedEarth === 'With (Yellow/Green - G)') {
+      finalPrice = finalPrice * 1.05;
+    }
     
     return Math.round(finalPrice * 100) / 100;
-  }, [product.price, product.brand, selectedCore, selectedSize]);
+  }, [product.price, product.brand, selectedCore, selectedSize, selectedEarth]);
 
   const handleAddToCart = () => {
     const variantName = product.brand.includes("LAPP") 
