@@ -476,14 +476,14 @@ export const Home: React.FC = () => {
             <button
               onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
               aria-label="Previous Slide"
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white border border-white/20 flex items-center justify-center transition-all z-20 cursor-pointer shadow-lg backdrop-blur-md hidden sm:flex"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white border border-white/20 flex items-center justify-center transition-all z-20 cursor-pointer shadow-lg backdrop-blur-md"
             >
               ‹
             </button>
             <button
               onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
               aria-label="Next Slide"
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white border border-white/20 flex items-center justify-center transition-all z-20 cursor-pointer shadow-lg backdrop-blur-md hidden sm:flex"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white border border-white/20 flex items-center justify-center transition-all z-20 cursor-pointer shadow-lg backdrop-blur-md"
             >
               ›
             </button>
