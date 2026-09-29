@@ -182,22 +182,22 @@ export const Home: React.FC = () => {
       cardBorder: "border-emerald-500/30",
     },
     {
-      brand: "CLEARANCE SALE",
+      brand: "LAPP INDIA",
       origin: "India",
-      isFullBanner: true,
-      logo: "",
-      tagline: "",
-      headline: "",
-      description: "",
+      logo: "/images/logo-lapp.png",
+      tagline: "🔥 Clearance Sale — Limited Time Only!",
+      headline: "More Than 50% OFF on LAPP Cables",
+      description:
+        "Massive clearance on genuine LAPP ÖLFLEX®, UNITRONIC®, and SKINTOP® products. Don't miss out — act quickly! Direct factory warranty, full GST ITC eligible. Stock is limited, first come first served.",
       img: "/images/slider4.jpg",
-      badge: "",
-      ctaText: "",
-      ctaLink: "",
-      productSampleId: "",
-      bgClass: "",
-      pillClass: "",
-      btnClass: "",
-      cardBorder: "",
+      badge: "CLEARANCE SALE",
+      ctaText: "Shop Now — Hurry!",
+      ctaLink: "#catalog",
+      productSampleId: "lapp-01",
+      bgClass: "bg-gradient-to-r from-zinc-950 via-slate-900 to-red-950/80 border-red-500/30",
+      pillClass: "bg-red-500/20 text-red-300 border-red-500/40",
+      btnClass: "bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white shadow-red-500/30",
+      cardBorder: "border-orange-500/30",
     }
   ];
 
@@ -359,25 +359,8 @@ export const Home: React.FC = () => {
               const isActive = idx === currentSlide;
               if (!isActive) return null;
 
-              if (slide.isFullBanner) {
-                return (
-                  <div
-                    key={slide.brand}
-                    className="relative w-full min-h-[300px] sm:min-h-[400px] md:min-h-[500px] z-10 animate-in fade-in duration-500 cursor-pointer overflow-hidden bg-slate-950"
-                    onClick={() => {
-                      setSelectedCategory("all");
-                      setSelectedBrand("all");
-                      setShowCatalog(true);
-                      setTimeout(() => {
-                        const catEl = document.getElementById("catalog");
-                        if (catEl) catEl.scrollIntoView({ behavior: "smooth" });
-                      }, 100);
-                    }}
-                  >
-                    <img src={slide.img} alt="Clearance Sale" className="absolute inset-0 w-full h-full object-cover object-center" />
-                  </div>
-                );
-              }
+
+
 
               return (
                 <div
