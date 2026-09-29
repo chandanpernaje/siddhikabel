@@ -103,7 +103,7 @@ export const Home: React.FC = () => {
   // Auto-advance Carousel
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 4);
+      setCurrentSlide((prev) => (prev + 1) % 5);
     }, 12000);
     return () => clearInterval(timer);
   }, []);
@@ -211,6 +211,24 @@ export const Home: React.FC = () => {
       btnClass: "bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 text-white shadow-emerald-500/30",
       cardBorder: "border-emerald-500/30",
     },
+    {
+      brand: "LAPP INDIA",
+      origin: "India",
+      logo: "/images/logo-lapp.png",
+      tagline: "🔥 Clearance Sale — Limited Time Only!",
+      headline: "Clearance Sale at more than 50% discount",
+      description:
+        "This would be limited time sale. Act quickly! Massive clearance on genuine LAPP products. Direct factory warranty, full GST ITC eligible. Stock is limited, first come first served.",
+      img: "/images/slider5.jpg",
+      badge: "CLEARANCE SALE",
+      ctaText: "Shop Now — Hurry!",
+      ctaLink: "#catalog",
+      productSampleId: "lapp-01",
+      bgClass: "bg-gradient-to-r from-zinc-950 via-slate-900 to-red-950/80 border-red-500/30",
+      pillClass: "bg-red-500/20 text-red-300 border-red-500/40",
+      btnClass: "bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white shadow-red-500/30",
+      cardBorder: "border-orange-500/30",
+    }
   ];
 
   // Filter Catalog
