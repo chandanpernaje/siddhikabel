@@ -347,9 +347,9 @@ export const ProductDetail: React.FC = () => {
                 
                 {/* Grid for Cores and Size side-by-side */}
                 <div className="grid grid-cols-2 gap-4">
-                  {/* 1. Number of Cores */}
+                  {/* 1. Core */}
                   <div>
-                    <label htmlFor="core-select" className="font-bold text-slate-800 text-sm block mb-2">1. Number of Cores</label>
+                    <label htmlFor="core-select" className="font-bold text-slate-800 text-sm block mb-2">1. Core</label>
                     <select
                       id="core-select"
                       value={selectedCore}
@@ -418,7 +418,7 @@ export const ProductDetail: React.FC = () => {
 
             {/* Real-time Meter / Quantity Calculator */}
             <div className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 space-y-5 shadow-lg">
-              <div className="flex items-baseline justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 sm:gap-0">
                 <div>
                   <span className="text-[11px] uppercase font-mono text-slate-400 font-bold block">
                     Contract Rate (Ex-GST)
@@ -433,15 +433,15 @@ export const ProductDetail: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="text-right">
+                <div className="text-left sm:text-right">
                   <span className="text-[11px] text-slate-400 font-bold block mb-1">
                     Update Qty ({product.unit === 'meter' ? 'Mtrs' : 'Nos'})
                   </span>
-                  <div className="flex items-center justify-end">
+                  <div className="flex items-center justify-start sm:justify-end">
                     <div className="flex items-center border border-slate-200 rounded-lg overflow-hidden shadow-sm bg-white">
-                      <button onClick={handleStepDown} className="px-3.5 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 font-bold border-r border-slate-200 transition-colors">-</button>
-                      <span className="px-4 py-1.5 text-sm font-bold font-mono text-slate-900 bg-white min-w-[3.5rem] text-center">{qty}</span>
-                      <button onClick={handleStepUp} className="px-3.5 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 font-bold border-l border-slate-200 transition-colors">+</button>
+                      <button onClick={handleStepDown} className="px-4 py-2 sm:px-3.5 sm:py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 font-bold border-r border-slate-200 transition-colors active:bg-slate-200">-</button>
+                      <span className="px-6 py-2 sm:px-4 sm:py-1.5 text-base sm:text-sm font-bold font-mono text-slate-900 bg-white min-w-[4rem] sm:min-w-[3.5rem] text-center">{qty}</span>
+                      <button onClick={handleStepUp} className="px-4 py-2 sm:px-3.5 sm:py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 font-bold border-l border-slate-200 transition-colors active:bg-slate-200">+</button>
                     </div>
                   </div>
                 </div>
