@@ -95,6 +95,13 @@ export const ProductDetail: React.FC = () => {
   const { addToCart, cart } = useCart();
   const { showToast } = useToast();
 
+  React.useEffect(() => {
+    if (product.brand.includes("LAPP") && selectedCore) {
+      const coreNum = selectedCore.split(' ')[0];
+      setSelectedImg(`/images/cores/${coreNum}-core.png`);
+    }
+  }, [selectedCore, product.brand]);
+
   const handleStepUp = () => {
     if (product.unit === "meter") {
       setQty((q) => {
@@ -341,36 +348,39 @@ export const ProductDetail: React.FC = () => {
             {product.brand.includes("LAPP") && (
               <div className="border-[1.5px] border-[#00a7e1]/20 rounded-[24px] p-5 sm:p-6 bg-white mb-6 shadow-sm space-y-6">
                 
-                {/* 1. Number of Cores */}
-                <div>
-                  <label htmlFor="core-select" className="font-bold text-slate-800 text-sm block mb-2">1. Number of Cores</label>
-                  <select
-                    id="core-select"
-                    value={selectedCore}
-                    onChange={(e) => setSelectedCore(e.target.value)}
-                    className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl border border-slate-300 bg-white text-slate-800 appearance-none cursor-pointer transition-all focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 hover:border-slate-400"
-                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
-                  >
-                    {['2 Core', '3 Core', '4 Core', '5 Core', '6 Core', '7 Core', '8 Core', '10 Core', '12 Core', '14 Core', '15 Core', '16 Core', '18 Core', '20 Core', '21 Core', '25 Core', '30 Core', '32 Core', '34 Core', '35 Core', '36 Core', '40 Core', '41 Core', '50 Core', '52 Core'].map(core => (
-                      <option key={core} value={core}>{core}</option>
-                    ))}
-                  </select>
-                </div>
+                {/* Grid for Cores and Size side-by-side */}
+                <div className="grid grid-cols-2 gap-4">
+                  {/* 1. Number of Cores */}
+                  <div>
+                    <label htmlFor="core-select" className="font-bold text-slate-800 text-sm block mb-2">1. Number of Cores</label>
+                    <select
+                      id="core-select"
+                      value={selectedCore}
+                      onChange={(e) => setSelectedCore(e.target.value)}
+                      className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl border border-slate-300 bg-white text-slate-800 appearance-none cursor-pointer transition-all focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 hover:border-slate-400"
+                      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                    >
+                      {['2 Core', '3 Core', '4 Core', '5 Core', '6 Core', '7 Core', '8 Core', '10 Core', '12 Core', '14 Core', '15 Core', '16 Core', '18 Core', '20 Core', '21 Core', '25 Core', '30 Core', '32 Core', '34 Core', '35 Core', '36 Core', '40 Core', '41 Core', '50 Core', '52 Core'].map(core => (
+                        <option key={core} value={core}>{core}</option>
+                      ))}
+                    </select>
+                  </div>
 
-                {/* 2. Size (Sqmm) */}
-                <div>
-                  <label htmlFor="size-select" className="font-bold text-slate-800 text-sm block mb-2">2. Size (Sqmm)</label>
-                  <select
-                    id="size-select"
-                    value={selectedSize}
-                    onChange={(e) => setSelectedSize(e.target.value)}
-                    className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl border border-slate-300 bg-white text-slate-800 appearance-none cursor-pointer transition-all focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 hover:border-slate-400"
-                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
-                  >
-                    {['0.5 Sqmm', '0.75 Sqmm', '1 Sqmm', '1.5 Sqmm', '2.5 Sqmm', '4 Sqmm', '6 Sqmm', '10 Sqmm', '16 Sqmm', '25 Sqmm', '35 Sqmm'].map(size => (
-                      <option key={size} value={size}>{size}</option>
-                    ))}
-                  </select>
+                  {/* 2. Size (Sqmm) */}
+                  <div>
+                    <label htmlFor="size-select" className="font-bold text-slate-800 text-sm block mb-2">2. Size (Sqmm)</label>
+                    <select
+                      id="size-select"
+                      value={selectedSize}
+                      onChange={(e) => setSelectedSize(e.target.value)}
+                      className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl border border-slate-300 bg-white text-slate-800 appearance-none cursor-pointer transition-all focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 hover:border-slate-400"
+                      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                    >
+                      {['0.5 Sqmm', '0.75 Sqmm', '1 Sqmm', '1.5 Sqmm', '2.5 Sqmm', '4 Sqmm', '6 Sqmm', '10 Sqmm', '16 Sqmm', '25 Sqmm', '35 Sqmm'].map(size => (
+                        <option key={size} value={size}>{size}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 {/* 3. Protective conductor */}
@@ -409,29 +419,8 @@ export const ProductDetail: React.FC = () => {
               </div>
             )}
 
-            {/* Real-time Meter / Quantity Calculator (Hidden for LAPP Categories) */}
-            {product.id.startsWith("lapp-cat-") ? (
-              <div className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 space-y-5 shadow-lg">
-                <div className="text-center">
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">Looking for a specific part?</h3>
-                  <p className="text-sm text-slate-600 mb-6">Request a customized bulk quotation for these LAPP products.</p>
-                  <button
-                    onClick={() => {
-                      navigate("/");
-                      setTimeout(() => {
-                        const el = document.getElementById("rfq");
-                        if (el) el.scrollIntoView({ behavior: "smooth" });
-                      }, 100);
-                    }}
-                    className="w-full py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2"
-                  >
-                    <FileText className="w-4 h-4" />
-                    <span>Request a Bulk Quote</span>
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 space-y-5 shadow-lg">
+            {/* Real-time Meter / Quantity Calculator */}
+            <div className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 space-y-5 shadow-lg">
               <div className="flex items-baseline justify-between">
                 <div>
                   <span className="text-[11px] uppercase font-mono text-slate-400 font-bold block">
@@ -459,7 +448,7 @@ export const ProductDetail: React.FC = () => {
               {/* Dynamic Cost Projection */}
               <div className="pt-4 border-t border-slate-100 space-y-2 text-xs">
                 <div className="flex justify-between text-slate-600">
-                  <span>Line Taxable Total:</span>
+                  <span>Total:</span>
                   <span className="font-mono text-slate-900 font-bold tabular-nums">
                     ₹{lineTotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
                   </span>
@@ -522,7 +511,6 @@ export const ProductDetail: React.FC = () => {
                 </button>
               </div>
             </div>
-            )}
           </div>
         </div>
 
