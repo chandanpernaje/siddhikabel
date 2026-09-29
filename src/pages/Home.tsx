@@ -108,6 +108,36 @@ export const Home: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Touch swipe support for mobile
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (Math.abs(distance) >= minSwipeDistance) {
+      if (distance > 0) {
+        // Swipe left → next slide
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+      } else {
+        // Swipe right → previous slide
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+      }
+    }
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   const slides = [
     {
       brand: "LAPP KABEL STUTTGART",
@@ -354,7 +384,7 @@ export const Home: React.FC = () => {
       {/* ======================================================== */}
       <section className="w-full text-slate-900 bg-slate-950 border-b border-slate-800 shadow-2xl relative overflow-hidden">
         <div className="w-full relative max-w-7xl mx-auto">
-          <div className="relative">
+          <div className="relative" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
             {slides.map((slide, idx) => {
               const isActive = idx === currentSlide;
               if (!isActive) return null;
