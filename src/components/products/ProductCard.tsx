@@ -28,16 +28,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     const b = brand.toLowerCase();
     if (b.includes("lapp")) {
       return {
-        cardBg: "bg-gradient-to-b from-amber-500/10 via-amber-50/70 to-white",
-        cardBorder: "border-amber-200/90 hover:border-amber-400 hover:shadow-amber-500/20",
-        topStrip: "border-t-4 border-t-amber-500",
-        imageBg: "bg-gradient-to-b from-amber-100/50 via-amber-50/40 to-white",
-        badge: "bg-amber-100/90 text-amber-900 border-amber-300 font-bold",
-        titleHover: "hover:text-amber-700",
-        bullet: "text-amber-500",
-        priceText: "text-amber-950",
-        btnGradient: "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-md shadow-orange-500/25",
-        accentGlow: "group-hover:shadow-amber-500/15",
+        cardBg: "bg-gradient-to-b from-blue-500/10 via-blue-50/70 to-white",
+        cardBorder: "border-blue-200/90 hover:border-blue-400 hover:shadow-blue-500/20",
+        topStrip: "border-t-4 border-t-blue-500",
+        imageBg: "bg-gradient-to-b from-blue-100/50 via-blue-50/40 to-white",
+        badge: "bg-blue-100/90 text-blue-900 border-blue-300 font-bold",
+        titleHover: "hover:text-blue-700",
+        bullet: "text-blue-500",
+        priceText: "text-blue-950",
+        btnGradient: "bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white shadow-md shadow-indigo-500/25",
+        accentGlow: "group-hover:shadow-blue-500/15",
       };
     }
     if (b.includes("eaton")) {
@@ -118,7 +118,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 bg-white/60 rounded-lg">
-            <ShieldCheck className="w-10 h-10 mb-2 opacity-50 text-amber-500" />
+            <ShieldCheck className="w-10 h-10 mb-2 opacity-50 text-blue-500" />
             <span className="text-xs uppercase tracking-wider font-mono font-bold">Industrial OEM Part</span>
           </div>
         )}

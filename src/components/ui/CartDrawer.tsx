@@ -52,8 +52,8 @@ export const CartDrawer: React.FC = () => {
           {/* Drawer Header with Rich Industrial Slate & Amber Background */}
           <div className="px-6 py-5 border-b border-slate-800 flex items-center justify-between bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white shadow-sm">
             <div className="flex items-center gap-3 min-w-0">
-              <div className="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center shrink-0">
-                <FileSpreadsheet className="w-5 h-5 text-amber-400" />
+              <div className="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center shrink-0">
+                <FileSpreadsheet className="w-5 h-5 text-blue-400" />
               </div>
               <div className="min-w-0">
                 <h3 className="text-base font-bold text-white tracking-tight truncate">
@@ -75,8 +75,8 @@ export const CartDrawer: React.FC = () => {
 
           {/* Tiered OEM Discount Notice */}
           {discountRate > 0 && (
-            <div className="bg-amber-50 border-b border-amber-200 px-6 py-2.5 flex items-center gap-2 text-xs text-amber-900 font-medium">
-              <Percent className="w-4 h-4 shrink-0 text-amber-600" />
+            <div className="bg-blue-50 border-b border-blue-200 px-6 py-2.5 flex items-center gap-2 text-xs text-blue-900 font-medium">
+              <Percent className="w-4 h-4 shrink-0 text-blue-600" />
               <span className="break-words">
                 Tiered Project Discount Applied: <strong>{(discountRate * 100).toFixed(0)}% Off</strong> contract rates!
               </span>
@@ -112,7 +112,7 @@ export const CartDrawer: React.FC = () => {
                     <div className="flex items-start justify-between gap-3 min-w-0">
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-1.5 text-[10px] uppercase font-mono text-slate-400 mb-1 font-bold">
-                          <span className="text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">{item.brand}</span>
+                          <span className="text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">{item.brand}</span>
                           <span>·</span>
                           <span className="truncate max-w-[150px]">{item.partNo}</span>
                         </div>
@@ -181,7 +181,7 @@ export const CartDrawer: React.FC = () => {
                   </div>
                 )}
                 {discountAmount > 0 && (
-                  <div className="flex justify-between text-amber-700 font-semibold">
+                  <div className="flex justify-between text-blue-700 font-semibold">
                     <span>Project Tier Discount ({(discountRate * 100).toFixed(0)}%):</span>
                     <span className="font-mono tabular-nums">
                       -₹{discountAmount.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
@@ -202,7 +202,7 @@ export const CartDrawer: React.FC = () => {
                 </div>
                 <div className="pt-2 border-t border-slate-200 flex justify-between text-sm font-bold text-slate-900">
                   <span>Estimated Total (Incl. GST):</span>
-                  <span className="text-amber-600 font-mono tabular-nums text-base font-black">
+                  <span className="text-blue-600 font-mono tabular-nums text-base font-black">
                     ₹{grandTotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
                   </span>
                 </div>
@@ -211,7 +211,7 @@ export const CartDrawer: React.FC = () => {
               <div className="space-y-2 pt-2">
                 <button
                   onClick={handleProceedToQuotation}
-                  className="w-full py-3.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 active:scale-98 transition-all"
+                  className="w-full py-3.5 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 active:scale-98 transition-all"
                 >
                   <span>Proceed to RFQ Form</span>
                   <ArrowRight className="w-4 h-4" />

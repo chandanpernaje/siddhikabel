@@ -152,10 +152,11 @@ export const Home: React.FC = () => {
       ctaText: "Open ÖLFLEX® Center",
       ctaLink: "/about-lapp",
       productSampleId: "lapp-01",
-      bgClass: "bg-gradient-to-r from-zinc-950 via-slate-900 to-amber-950/80 border-amber-500/30",
-      pillClass: "bg-amber-500/20 text-amber-300 border-amber-500/40",
-      btnClass: "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-amber-500/30",
-      cardBorder: "border-amber-500/30",
+      bgClass: "bg-gradient-to-r from-blue-50 via-white to-blue-100/80 border-blue-200/50",
+      pillClass: "bg-blue-100 text-blue-700 border-blue-200",
+      btnClass: "bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white shadow-blue-500/30",
+      cardBorder: "border-blue-200",
+      taglineColor: "text-blue-600",
     },
     {
       brand: "EATON - MOELLER",
@@ -170,10 +171,11 @@ export const Home: React.FC = () => {
       ctaText: "Explore Eaton Switchgear",
       ctaLink: "/about-eaton",
       productSampleId: "eaton-01",
-      bgClass: "bg-gradient-to-r from-slate-950 via-slate-900 to-blue-950/90 border-blue-500/30",
-      pillClass: "bg-blue-500/20 text-blue-300 border-blue-500/40",
-      btnClass: "bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-blue-500/30",
-      cardBorder: "border-blue-500/30",
+      bgClass: "bg-gradient-to-r from-slate-50 via-white to-slate-100/90 border-slate-200/50",
+      pillClass: "bg-slate-200 text-slate-700 border-slate-300",
+      btnClass: "bg-gradient-to-r from-slate-700 to-slate-900 hover:from-slate-800 hover:to-slate-950 text-white shadow-slate-500/30",
+      cardBorder: "border-slate-200",
+      taglineColor: "text-slate-600",
     },
     {
       brand: "MENNEKES GERMANY",
@@ -188,10 +190,11 @@ export const Home: React.FC = () => {
       ctaText: "Explore Mennekes",
       ctaLink: "/about-mennekes",
       productSampleId: "menn-01",
-      bgClass: "bg-gradient-to-r from-slate-950 via-slate-900 to-rose-950/90 border-rose-500/30",
-      pillClass: "bg-rose-500/20 text-rose-300 border-rose-500/40",
-      btnClass: "bg-gradient-to-r from-rose-600 to-red-500 hover:from-rose-700 hover:to-red-600 text-white shadow-rose-500/30",
-      cardBorder: "border-rose-500/30",
+      bgClass: "bg-gradient-to-r from-red-50 via-white to-red-50/90 border-red-200/50",
+      pillClass: "bg-red-100 text-red-700 border-red-200",
+      btnClass: "bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white shadow-red-500/30",
+      cardBorder: "border-red-200",
+      taglineColor: "text-red-600",
     },
     {
       brand: "PARTEX SWEDEN",
@@ -206,10 +209,11 @@ export const Home: React.FC = () => {
       ctaText: "Explore Partex Marking",
       ctaLink: "/about-partex",
       productSampleId: "partex-01",
-      bgClass: "bg-gradient-to-r from-slate-950 via-slate-900 to-emerald-950/90 border-emerald-500/30",
-      pillClass: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
-      btnClass: "bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 text-white shadow-emerald-500/30",
-      cardBorder: "border-emerald-500/30",
+      bgClass: "bg-gradient-to-r from-sky-50 via-white to-sky-100/90 border-sky-200/50",
+      pillClass: "bg-sky-100 text-sky-700 border-sky-200",
+      btnClass: "bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white shadow-sky-500/30",
+      cardBorder: "border-sky-200",
+      taglineColor: "text-sky-600",
     },
     {
       brand: "LAPP INDIA",
@@ -224,10 +228,11 @@ export const Home: React.FC = () => {
       ctaText: "Shop Now — Hurry!",
       ctaLink: "#catalog",
       productSampleId: "lapp-01",
-      bgClass: "bg-gradient-to-r from-zinc-950 via-slate-900 to-red-950/80 border-red-500/30",
-      pillClass: "bg-red-500/20 text-red-300 border-red-500/40",
-      btnClass: "bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white shadow-red-500/30",
-      cardBorder: "border-orange-500/30",
+      bgClass: "bg-gradient-to-r from-red-50 via-white to-indigo-50/80 border-red-200/50",
+      pillClass: "bg-red-100 text-red-700 border-red-200",
+      btnClass: "bg-gradient-to-r from-red-600 to-indigo-600 hover:from-red-700 hover:to-indigo-700 text-white shadow-red-500/30",
+      cardBorder: "border-indigo-200",
+      taglineColor: "text-red-600",
     }
   ];
 
@@ -341,11 +346,11 @@ export const Home: React.FC = () => {
 
   const brandCardStyles: Record<string, { bg: string; border: string; strip: string; badge: string; text: string }> = {
     lapp: {
-      bg: "bg-gradient-to-br from-amber-500/15 via-amber-50 to-orange-100/70",
-      border: "border-amber-300 hover:border-amber-500 shadow-amber-500/10",
-      strip: "border-t-4 border-t-amber-500",
-      badge: "bg-amber-200 text-amber-950 font-bold",
-      text: "text-amber-800 hover:text-amber-950",
+      bg: "bg-gradient-to-br from-blue-500/15 via-blue-50 to-indigo-100/70",
+      border: "border-blue-300 hover:border-blue-500 shadow-blue-500/10",
+      strip: "border-t-4 border-t-blue-500",
+      badge: "bg-blue-200 text-blue-950 font-bold",
+      text: "text-blue-800 hover:text-blue-950",
     },
     eaton: {
       bg: "bg-gradient-to-br from-blue-500/15 via-sky-50 to-blue-100/70",
@@ -382,7 +387,7 @@ export const Home: React.FC = () => {
       {/* ======================================================== */}
       {/* HERO BANNER CAROUSEL SLIDER                               */}
       {/* ======================================================== */}
-      <section className="w-full text-slate-900 bg-slate-950 border-b border-slate-800 shadow-2xl relative overflow-hidden">
+      <section className="w-full text-slate-900 bg-white border-b border-slate-200 shadow-sm relative overflow-hidden">
         <div className="w-full relative max-w-7xl mx-auto">
           <div className="relative" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
             {slides.map((slide, idx) => {
@@ -394,7 +399,7 @@ export const Home: React.FC = () => {
                 return (
                   <div
                     key={slide.brand}
-                    className="relative w-full min-h-[460px] md:min-h-[500px] z-10 animate-in fade-in duration-500 cursor-pointer overflow-hidden bg-slate-950"
+                    className="relative w-full min-h-[460px] md:min-h-[500px] z-10 animate-in fade-in duration-500 cursor-pointer overflow-hidden bg-white"
                     onClick={() => {
                       setSelectedCategory("all");
                       setSelectedBrand("lapp");
@@ -413,29 +418,29 @@ export const Home: React.FC = () => {
               return (
                 <div
                   key={slide.brand}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 md:p-12 min-h-[460px] md:min-h-[500px] relative z-10 animate-in fade-in duration-500"
+                  className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 md:p-12 min-h-[460px] md:min-h-[500px] relative z-10 animate-in fade-in duration-500 ${slide.bgClass}`}
                 >
                   {/* Left Side — Text Container */}
                   <div className="lg:col-span-7 flex flex-col justify-center space-y-5 z-10">
                     {/* Brand Logo & Country Origin Pill */}
                     <div className="flex items-center gap-3 flex-wrap">
-                      <div className="bg-white px-3 py-1.5 rounded-xl flex items-center shadow-md h-10">
+                      <div className="bg-white px-3 py-1.5 rounded-xl flex items-center shadow-sm border border-slate-100 h-10">
                         <img src={slide.logo} alt={slide.brand} className="h-6 sm:h-7 object-contain" />
                       </div>
                     </div>
 
                     {/* Subtitle / Eyebrow Text */}
-                    <span className="text-amber-400 font-extrabold text-xs tracking-widest uppercase">
+                    <span className={`${slide.taglineColor} font-extrabold text-xs tracking-widest uppercase`}>
                       {slide.tagline}
                     </span>
 
                     {/* Main Heading */}
-                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
                       {slide.headline}
                     </h1>
 
                     {/* Description Paragraph */}
-                    <p className="text-slate-300 text-sm sm:text-base max-w-xl leading-relaxed">
+                    <p className="text-slate-600 text-sm sm:text-base max-w-xl leading-relaxed font-medium">
                       {slide.description}
                     </p>
 
@@ -443,7 +448,7 @@ export const Home: React.FC = () => {
                     <div className="flex flex-wrap items-center gap-4 pt-2">
                       <Link
                         to={slide.ctaLink}
-                        className={`px-6 py-3 font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 shadow-lg ${slide.btnClass}`}
+                        className={`px-6 py-3 font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 shadow-md ${slide.btnClass}`}
                       >
                         <span>{slide.ctaText}</span>
                         <ArrowRight className="w-4 h-4" />
@@ -466,7 +471,7 @@ export const Home: React.FC = () => {
                             if (catEl) catEl.scrollIntoView({ behavior: "smooth" });
                           }, 100);
                         }}
-                        className="px-5 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs rounded-xl transition-colors backdrop-blur-md flex items-center gap-2 cursor-pointer shadow-lg"
+                        className="px-5 py-3 bg-white/60 hover:bg-white/90 border border-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-colors backdrop-blur-sm flex items-center gap-2 cursor-pointer shadow-sm"
                       >
                         <span>Explore {slide.brand.split(" ")[0]} Catalog ⚡</span>
                       </button>
@@ -476,13 +481,13 @@ export const Home: React.FC = () => {
                   {/* Right Side — Image / Media Container */}
                   <div className="lg:col-span-5 relative flex justify-center items-center z-10 w-full mt-6 lg:mt-0">
                     <div 
-                      className={`relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden border ${slide.cardBorder} shadow-2xl bg-slate-900/80 group cursor-pointer`}
+                      className={`relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden border ${slide.cardBorder} shadow-xl bg-white group cursor-pointer`}
                       onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
                     >
                       <img src={slide.img} alt={slide.brand} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute bottom-0 inset-x-0 bg-slate-950/80 backdrop-blur-md p-3 px-4 border-t border-white/10 flex justify-between items-center text-xs font-semibold text-slate-300">
+                      <div className="absolute bottom-0 inset-x-0 bg-white/90 backdrop-blur-md p-3 px-4 border-t border-slate-100 flex justify-between items-center text-xs font-semibold text-slate-700">
                         <span>{slide.brand}</span>
-                        <Zap className="w-4 h-4 text-emerald-400" />
+                        <Zap className="w-4 h-4 text-blue-500" />
                       </div>
                     </div>
                   </div>
@@ -494,28 +499,28 @@ export const Home: React.FC = () => {
             <button
               onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
               aria-label="Previous Slide"
-              className="absolute left-2 sm:left-4 top-[80%] sm:top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white border border-white/20 flex items-center justify-center transition-all z-20 cursor-pointer shadow-lg backdrop-blur-md"
+              className="absolute left-2 sm:left-4 top-[80%] sm:top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 hover:bg-white text-slate-800 border border-slate-200 flex items-center justify-center transition-all z-20 cursor-pointer shadow-md backdrop-blur-sm"
             >
               ‹
             </button>
             <button
               onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
               aria-label="Next Slide"
-              className="absolute right-2 sm:right-4 top-[80%] sm:top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white border border-white/20 flex items-center justify-center transition-all z-20 cursor-pointer shadow-lg backdrop-blur-md"
+              className="absolute right-2 sm:right-4 top-[80%] sm:top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 hover:bg-white text-slate-800 border border-slate-200 flex items-center justify-center transition-all z-20 cursor-pointer shadow-md backdrop-blur-sm"
             >
               ›
             </button>
 
             {/* Carousel Indicator Dots */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 bg-slate-950/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
               {slides.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
                   className={`h-2.5 rounded-full transition-all cursor-pointer ${
                     idx === currentSlide
-                      ? "w-7 bg-amber-400 shadow-sm"
-                      : "w-2.5 bg-white/40 hover:bg-white/70"
+                      ? "w-7 bg-blue-600 shadow-sm"
+                      : "w-2.5 bg-slate-300 hover:bg-slate-400"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -547,7 +552,7 @@ export const Home: React.FC = () => {
                 border: "border-slate-200 hover:border-slate-400",
                 strip: "border-t-4 border-t-slate-500",
                 badge: "bg-slate-100 text-slate-700",
-                text: "text-amber-600",
+                text: "text-blue-600",
               };
               return (
                 <div
@@ -562,7 +567,7 @@ export const Home: React.FC = () => {
                     }, 150);
                   }}
                   className={`rounded-2xl ${style.bg} ${style.border} ${style.strip} p-6 sm:p-7 flex flex-col justify-between space-y-5 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer group hover:-translate-y-2 min-h-[260px] lg:min-h-[290px] w-full ${
-                    selectedBrand === b.id && showCatalog ? "ring-2 ring-amber-500 shadow-xl scale-[1.02] bg-white" : ""
+                    selectedBrand === b.id && showCatalog ? "ring-2 ring-blue-500 shadow-xl scale-[1.02] bg-white" : ""
                   }`}
                 >
                   <div className="space-y-4">
@@ -575,7 +580,7 @@ export const Home: React.FC = () => {
                       </span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-black text-slate-900 tracking-tight group-hover:text-amber-600 transition-colors">
+                      <h3 className="text-lg font-black text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
                         {b.name}
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed font-medium line-clamp-3">
@@ -595,7 +600,7 @@ export const Home: React.FC = () => {
           {/* Inline Product Catalog */}
           {showCatalog && (
             <div id="catalog" className={`w-full mt-4 pt-6 pb-8 px-4 sm:px-6 lg:px-8 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 bg-white rounded-r-2xl rounded-bl-2xl shadow-lg border-l-4 border-t-4 relative ${
-              selectedBrand === 'lapp' ? 'border-amber-500 bg-amber-50/20' :
+              selectedBrand === 'lapp' ? 'border-blue-500 bg-blue-50/20' :
               selectedBrand === 'eaton' ? 'border-blue-500 bg-blue-50/20' :
               selectedBrand === 'mennekes' ? 'border-rose-500 bg-rose-50/20' :
               selectedBrand === 'partex' ? 'border-emerald-500 bg-emerald-50/20' :
@@ -604,7 +609,7 @@ export const Home: React.FC = () => {
               {/* Caret pointing to selected brand (visible mainly on lg screens where they are in 1 row) */}
               {selectedBrand !== 'all' && (
                 <div className={`absolute -top-4 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[16px] hidden lg:block ${
-                  selectedBrand === 'lapp' ? 'left-[12.5%] border-b-amber-500' :
+                  selectedBrand === 'lapp' ? 'left-[12.5%] border-b-blue-500' :
                   selectedBrand === 'eaton' ? 'left-[37.5%] border-b-blue-500' :
                   selectedBrand === 'partex' ? 'left-[62.5%] border-b-emerald-500' :
                   selectedBrand === 'mennekes' ? 'left-[87.5%] border-b-rose-500' : ''
@@ -617,7 +622,7 @@ export const Home: React.FC = () => {
                   <div className="flex items-center gap-2">
                     {selectedBrand !== "all" && (
                       <span className={`text-xs font-mono uppercase px-2.5 py-1 rounded-lg text-white font-bold ${
-                        selectedBrand === 'lapp' ? 'bg-amber-500' :
+                        selectedBrand === 'lapp' ? 'bg-blue-500' :
                         selectedBrand === 'eaton' ? 'bg-blue-500' :
                         selectedBrand === 'mennekes' ? 'bg-rose-500' :
                         selectedBrand === 'partex' ? 'bg-emerald-500' : 'bg-slate-500'
@@ -645,10 +650,10 @@ export const Home: React.FC = () => {
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className={`w-full bg-white border rounded-xl pl-10 pr-3 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none shadow-xs font-medium ${
-                        selectedBrand === 'lapp' ? 'border-amber-200 focus:border-amber-500' :
+                        selectedBrand === 'lapp' ? 'border-blue-200 focus:border-blue-500' :
                         selectedBrand === 'eaton' ? 'border-blue-200 focus:border-blue-500' :
                         selectedBrand === 'mennekes' ? 'border-rose-200 focus:border-rose-500' :
-                        selectedBrand === 'partex' ? 'border-emerald-200 focus:border-emerald-500' : 'border-slate-300 focus:border-amber-500'
+                        selectedBrand === 'partex' ? 'border-emerald-200 focus:border-emerald-500' : 'border-slate-300 focus:border-blue-500'
                       }`}
                     />
                   </div>
@@ -658,10 +663,10 @@ export const Home: React.FC = () => {
                       value={selectedCategory}
                       onChange={(e) => setSelectedCategory(e.target.value)}
                       className={`w-full sm:w-auto max-w-[200px] truncate bg-white border rounded-xl px-3 py-2.5 text-slate-900 focus:outline-none shadow-xs font-semibold ${
-                        selectedBrand === 'lapp' ? 'border-amber-200 focus:border-amber-500' :
+                        selectedBrand === 'lapp' ? 'border-blue-200 focus:border-blue-500' :
                         selectedBrand === 'eaton' ? 'border-blue-200 focus:border-blue-500' :
                         selectedBrand === 'mennekes' ? 'border-rose-200 focus:border-rose-500' :
-                        selectedBrand === 'partex' ? 'border-emerald-200 focus:border-emerald-500' : 'border-slate-300 focus:border-amber-500'
+                        selectedBrand === 'partex' ? 'border-emerald-200 focus:border-emerald-500' : 'border-slate-300 focus:border-blue-500'
                       }`}
                     >
                       <option value="all">All {BRANDS.find((b) => b.id === selectedBrand)?.name.split(' ')[0] || ""} Products</option>
@@ -674,10 +679,10 @@ export const Home: React.FC = () => {
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value as any)}
                     className={`w-full sm:w-auto bg-white border rounded-xl px-3 py-2.5 text-slate-900 focus:outline-none shadow-xs font-semibold ${
-                      selectedBrand === 'lapp' ? 'border-amber-200 focus:border-amber-500' :
+                      selectedBrand === 'lapp' ? 'border-blue-200 focus:border-blue-500' :
                       selectedBrand === 'eaton' ? 'border-blue-200 focus:border-blue-500' :
                       selectedBrand === 'mennekes' ? 'border-rose-200 focus:border-rose-500' :
-                      selectedBrand === 'partex' ? 'border-emerald-200 focus:border-emerald-500' : 'border-slate-300 focus:border-amber-500'
+                      selectedBrand === 'partex' ? 'border-emerald-200 focus:border-emerald-500' : 'border-slate-300 focus:border-blue-500'
                     }`}
                   >
                     <option value="featured">Sort: Featured OEM</option>
@@ -704,7 +709,7 @@ export const Home: React.FC = () => {
                   <p>No products matched your active filters.</p>
                   <button
                     onClick={() => { setSelectedCategory("all"); setSelectedBrand("all"); setSearchQuery(""); }}
-                    className="text-amber-600 underline font-bold"
+                    className="text-blue-600 underline font-bold"
                   >
                     Clear all filters
                   </button>
@@ -726,12 +731,12 @@ export const Home: React.FC = () => {
       <section id="rfq" className="w-full bg-white scroll-mt-24 pt-6 lg:pt-8 pb-6 lg:pb-8 text-slate-900 relative">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="rounded-3xl bg-white border border-slate-200 shadow-xl p-6 sm:p-10 lg:p-12 relative overflow-hidden">
-          {/* Subtle amber background glow */}
-          <div aria-hidden="true" className="absolute top-0 right-0 w-96 h-96 rounded-full bg-amber-500/5 blur-3xl pointer-events-none" />
+          {/* Subtle blue background glow */}
+          <div aria-hidden="true" className="absolute top-0 right-0 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl pointer-events-none" />
 
           <div className="max-w-3xl mb-8 space-y-2 relative z-10">
-            <div className="text-xs font-mono uppercase tracking-wider text-amber-700 flex items-center gap-2 font-bold">
-              <FileSpreadsheet className="w-4 h-4 text-amber-600" />
+            <div className="text-xs font-mono uppercase tracking-wider text-blue-700 flex items-center gap-2 font-bold">
+              <FileSpreadsheet className="w-4 h-4 text-blue-600" />
               <span>B2B Commercial Procurement Desk</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -759,7 +764,7 @@ export const Home: React.FC = () => {
               <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
                 <Link
                   to="/quotation"
-                  className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
+                  className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
                 >
                   View Quotation Document &amp; Print PDF
                 </Link>
@@ -784,7 +789,7 @@ export const Home: React.FC = () => {
                     placeholder="e.g. Apex Automation Pvt Ltd"
                     value={rfqCompany}
                     onChange={(e) => setRfqCompany(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-medium"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-medium"
                   />
                 </div>
 
@@ -798,7 +803,7 @@ export const Home: React.FC = () => {
                     placeholder="Purchasing / Project Engineer"
                     value={rfqName}
                     onChange={(e) => setRfqName(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-medium"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-medium"
                   />
                 </div>
 
@@ -812,7 +817,7 @@ export const Home: React.FC = () => {
                     placeholder="procurement@company.com"
                     value={rfqEmail}
                     onChange={(e) => setRfqEmail(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-medium"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-medium"
                   />
                 </div>
 
@@ -826,7 +831,7 @@ export const Home: React.FC = () => {
                     placeholder="+91 99000 48877"
                     value={rfqPhone}
                     onChange={(e) => setRfqPhone(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-mono font-bold"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-mono font-bold"
                   />
                 </div>
 
@@ -840,7 +845,7 @@ export const Home: React.FC = () => {
                     placeholder="Bangalore, Chennai, Pune..."
                     value={rfqCity}
                     onChange={(e) => setRfqCity(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-medium"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-medium"
                   />
                 </div>
 
@@ -853,7 +858,7 @@ export const Home: React.FC = () => {
                     placeholder="29ABCDE1234F1Z5"
                     value={rfqGstin}
                     onChange={(e) => setRfqGstin(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-mono uppercase"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-mono uppercase"
                     maxLength={15}
                   />
                 </div>
@@ -867,7 +872,7 @@ export const Home: React.FC = () => {
                   <select
                     value={rfqCategory}
                     onChange={(e) => setRfqCategory(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none focus:border-amber-500 font-semibold"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 font-semibold"
                   >
                     <option value="lapp">LAPP Kabel Flexible Cables &amp; Wires</option>
                     <option value="eaton">EATON Moeller Switchgear &amp; Starters</option>
@@ -885,7 +890,7 @@ export const Home: React.FC = () => {
                     value={rfqQuantity}
                     onChange={(e) => setRfqQuantity(e.target.value)}
                     placeholder="e.g. 500m of 4G2.5, 20x 32A 5P plugs"
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-mono font-bold"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white font-mono font-bold"
                   />
                 </div>
               </div>
@@ -899,7 +904,7 @@ export const Home: React.FC = () => {
                   value={rfqNotes}
                   onChange={(e) => setRfqNotes(e.target.value)}
                   placeholder="Mention exact part numbers, cable sizes (e.g. 3G1.5, 4G4.0, 7G1.0), required drum cutting lengths, and site delivery dates..."
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white leading-relaxed font-medium"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white leading-relaxed font-medium"
                 />
               </div>
 
@@ -909,8 +914,8 @@ export const Home: React.FC = () => {
                   <span>Attach Excel BOM / Drawing / RFQ Schedule (Optional)</span>
                   <span className="text-[11px] text-slate-500 font-normal">Max 25MB each</span>
                 </label>
-                <label className="border border-dashed border-slate-300 hover:border-amber-500 bg-slate-50 hover:bg-amber-50/50 rounded-2xl p-5 flex flex-col items-center justify-center cursor-pointer transition-colors text-center">
-                  <Upload className="w-5 h-5 text-amber-600 mb-1" />
+                <label className="border border-dashed border-slate-300 hover:border-blue-500 bg-slate-50 hover:bg-blue-50/50 rounded-2xl p-5 flex flex-col items-center justify-center cursor-pointer transition-colors text-center">
+                  <Upload className="w-5 h-5 text-blue-600 mb-1" />
                   <span className="text-slate-900 font-bold">Drop BOM spreadsheet or click to browse</span>
                   <span className="text-[11px] text-slate-500 font-medium">Excel (.xlsx, .csv), PDF, CAD, ZIP</span>
                   <input
@@ -927,7 +932,7 @@ export const Home: React.FC = () => {
                         key={i}
                         className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-800 text-[11px] font-medium"
                       >
-                        <Paperclip className="w-3.5 h-3.5 text-amber-600" />
+                        <Paperclip className="w-3.5 h-3.5 text-blue-600" />
                         <span className="truncate max-w-[180px]">{f.name}</span>
                       </div>
                     ))}
@@ -939,7 +944,7 @@ export const Home: React.FC = () => {
                 <button
                   type="submit"
                   disabled={rfqSubmitting}
-                  className="w-full py-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-md transition-all active:scale-98 disabled:opacity-50"
+                  className="w-full py-4 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-black text-xs uppercase tracking-wider rounded-xl shadow-md transition-all active:scale-98 disabled:opacity-50"
                 >
                   {rfqSubmitting ? "Submitting Request..." : "Submit Request for Quotation"}
                 </button>
@@ -959,7 +964,7 @@ export const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Text Content */}
             <div className="space-y-4">
-              <div className="text-xs font-mono uppercase tracking-wider text-amber-700 font-bold">
+              <div className="text-xs font-mono uppercase tracking-wider text-blue-700 font-bold">
                 Company Profile
               </div>
               <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -987,9 +992,9 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-200/80 text-xs">
-            <div className="space-y-2 p-5 rounded-2xl bg-gradient-to-br from-amber-500/10 via-amber-50/60 to-white border border-amber-200 shadow-xs">
+            <div className="space-y-2 p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 via-blue-50/60 to-white border border-blue-200 shadow-xs">
               <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-500" />
+                <span className="w-2 h-2 rounded-full bg-blue-500" />
                 <span>15+ Years Experience</span>
               </h4>
               <p className="text-slate-600 leading-relaxed font-medium">
@@ -1020,9 +1025,9 @@ export const Home: React.FC = () => {
             {/* 4 Trust Metrics Cards */}
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-8 border-t border-slate-200/80">
           {/* Card 1: Amber / Ready stock */}
-          <div className="space-y-2 p-5 rounded-2xl bg-gradient-to-br from-amber-500/10 via-amber-50/60 to-white border border-amber-200 shadow-xs">
+          <div className="space-y-2 p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 via-blue-50/60 to-white border border-blue-200 shadow-xs">
             <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2">
-              <Zap className="w-4 h-4 text-amber-500" />
+              <Zap className="w-4 h-4 text-blue-500" />
               <span>25,000m+ Ready Stock</span>
             </h4>
             <p className="text-slate-600 leading-relaxed font-medium text-xs">
