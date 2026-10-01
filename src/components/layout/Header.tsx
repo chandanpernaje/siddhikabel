@@ -123,14 +123,14 @@ export const Header: React.FC = () => {
   return (
     <>
       <header className="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm relative backdrop-blur-xl">
-        {/* Bottom glowing blue brand accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent pointer-events-none" />
+        {/* Bottom glowing multi-color brand accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-red-500 to-sky-400 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
           {/* Zone 1: Official Siddhi Kabel Logo Lockup */}
           <Link
             to="/"
-            className="flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-xl"
+            className="flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded-xl"
             title="Siddhi Kabel Corporation - Authorized Industrial Distributor"
           >
             <div className="bg-white hover:bg-slate-50 px-2.5 sm:px-3.5 py-1.5 rounded-xl shadow-xs border border-slate-200 transition-all flex items-center justify-center">
@@ -154,9 +154,9 @@ export const Header: React.FC = () => {
                 key={link.label}
                 to={link.path}
                 onClick={(e) => handleNavClick(e, link.path, false)}
-                className={`transition-colors py-1 hover:text-blue-600 ${
+                className={`transition-colors py-1 hover:text-red-600 ${
                   location.hash === link.path.replace("/", "")
-                    ? "text-blue-600 font-bold"
+                    ? "text-red-600 font-bold"
                     : "text-slate-800"
                 }`}
               >
@@ -170,7 +170,7 @@ export const Header: React.FC = () => {
             {/* Search Trigger Button */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="p-2 sm:p-2.5 text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-colors flex items-center gap-2 border border-slate-200"
+              className="p-2 sm:p-2.5 text-slate-700 hover:text-sky-600 hover:bg-sky-50 rounded-xl transition-colors flex items-center gap-2 border border-slate-200"
               title="Search industrial parts"
               aria-label="Search"
             >
@@ -207,13 +207,13 @@ export const Header: React.FC = () => {
             {/* Quotation Cart Button */}
             <button
               onClick={openCart}
-              className="flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-blue-500 via-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold transition-all group relative shadow-md shadow-blue-500/20 active:scale-95 border border-blue-400/40"
+              className="flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold transition-all group relative shadow-md shadow-blue-500/20 active:scale-95 border border-blue-500/40"
               aria-label="Quotation Cart"
             >
               <div className="relative">
                 <ShoppingCart className="w-4 h-4 text-white group-hover:scale-105 transition-transform" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-2.5 -right-2.5 bg-blue-700 text-white border border-blue-500/60 font-black text-[9px] rounded-full w-4 h-4 flex items-center justify-center tabular-nums shadow-xs">
+                  <span className="absolute -top-2.5 -right-2.5 bg-red-600 text-white border border-red-500/60 font-black text-[9px] rounded-full w-4 h-4 flex items-center justify-center tabular-nums shadow-xs">
                     {totalItems > 99 ? "99+" : totalItems}
                   </span>
                 )}
@@ -248,7 +248,7 @@ export const Header: React.FC = () => {
                   key={link.label}
                   to={link.path}
                   onClick={(e) => handleNavClick(e, link.path, true)}
-                  className="block px-3 py-2.5 text-sm font-semibold text-slate-800 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-colors"
+                  className="block px-3 py-2.5 text-sm font-semibold text-slate-800 hover:text-red-600 hover:bg-red-50 rounded-xl transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -296,7 +296,7 @@ export const Header: React.FC = () => {
             {/* Search Header */}
             <div className="flex items-center justify-between border-b border-slate-100 px-5 py-3">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
-                <Search className="w-4 h-4 text-blue-600" />
+                <Search className="w-4 h-4 text-sky-600" />
                 <span>Search Products</span>
               </div>
               <button
@@ -319,7 +319,7 @@ export const Header: React.FC = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
                   autoFocus
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-16 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-16 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white"
                 />
                 {searchQuery && (
                   <button
@@ -349,7 +349,7 @@ export const Header: React.FC = () => {
                         onClick={() => navigateToProduct(product.id)}
                         className={`w-full flex items-center gap-4 px-5 py-3 text-left transition-colors ${
                           highlightedIndex === index
-                            ? "bg-blue-50 border-l-2 border-blue-500"
+                            ? "bg-sky-50 border-l-2 border-sky-500"
                             : "hover:bg-slate-50 border-l-2 border-transparent"
                         }`}
                       >
@@ -422,7 +422,7 @@ export const Header: React.FC = () => {
                     <button
                       key={term}
                       onClick={() => setSearchQuery(term)}
-                      className="px-2.5 py-1 bg-slate-100 hover:bg-blue-100 hover:text-blue-800 text-slate-700 rounded-lg transition-colors font-medium"
+                      className="px-2.5 py-1 bg-slate-100 hover:bg-sky-100 hover:text-sky-800 text-slate-700 rounded-lg transition-colors font-medium"
                     >
                       {term}
                     </button>

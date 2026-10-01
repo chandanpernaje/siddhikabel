@@ -19,7 +19,7 @@ export const TopBar: React.FC = () => {
 
           <a
             href="mailto:sales@siddhikabel.com"
-            className="flex items-center gap-1.5 text-slate-800 font-semibold hover:text-blue-600 transition-colors shrink-0"
+            className="flex items-center gap-1.5 text-slate-800 font-semibold hover:text-red-600 transition-colors shrink-0"
           >
             <Mail className="w-3.5 h-3.5 text-slate-500 shrink-0" />
             <span className="text-[11px]">sales@siddhikabel.com</span>
@@ -29,7 +29,7 @@ export const TopBar: React.FC = () => {
         {/* Desktop View ONLY: Full top bar with 4 items equal spacing */}
         <div className="hidden md:flex items-center justify-between w-full">
           <div className="flex items-center gap-1.5 text-slate-900 font-semibold">
-            <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+            <ShieldCheck className="w-3.5 h-3.5 text-sky-600" />
             <span>Authorized B2B Industrial Stockist</span>
           </div>
           
@@ -48,7 +48,7 @@ export const TopBar: React.FC = () => {
 
           <a
             href="mailto:sales@siddhikabel.com"
-            className="flex items-center gap-1.5 hover:text-blue-600 transition-colors text-slate-700 font-medium"
+            className="flex items-center gap-1.5 hover:text-red-600 transition-colors text-slate-700 font-medium"
           >
             <Mail className="w-3.5 h-3.5 text-slate-500" />
             <span>sales@siddhikabel.com</span>
