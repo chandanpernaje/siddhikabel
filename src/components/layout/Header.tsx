@@ -136,7 +136,7 @@ export const Header: React.FC = () => {
             <img
               src="/images/siddhi-kabel-lockup.png"
               alt="Siddhi Kabel Corporation"
-              className="h-10 sm:h-12 w-auto object-contain transition-transform hover:scale-102"
+              className="h-8 sm:h-12 w-auto object-contain transition-transform hover:scale-102"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.onerror = null;
@@ -164,15 +164,15 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Zone 3: Search, Client Portal & Quotation Cart */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Search Trigger Button */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="h-10 sm:h-11 px-3 text-slate-700 hover:text-sky-600 hover:bg-sky-50 rounded-xl transition-colors flex items-center justify-center gap-2 border border-slate-200"
+              className="h-9 w-9 sm:h-11 sm:w-auto px-0 sm:px-3 text-slate-700 hover:text-sky-600 hover:bg-sky-50 rounded-lg sm:rounded-xl transition-colors flex items-center justify-center gap-2 border border-slate-200 shrink-0 bg-white"
               title="Search industrial parts"
               aria-label="Search"
             >
-              <Search className="w-4 h-4 text-slate-600" />
+              <Search className="w-[18px] h-[18px] sm:w-4 sm:h-4 text-slate-700 shrink-0" />
               <span className="hidden xl:inline text-xs font-medium text-slate-500">Search Products</span>
             </button>
 
@@ -180,38 +180,36 @@ export const Header: React.FC = () => {
             {user ? (
               <button
                 onClick={openAccountModal}
-                className="hidden md:flex h-10 sm:h-11 items-center justify-center gap-2 px-3 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-800 hover:bg-slate-200 transition-colors"
+                className="hidden sm:flex h-9 w-9 sm:h-11 sm:w-auto items-center justify-center gap-2 px-0 sm:px-3 rounded-lg sm:rounded-xl bg-white sm:bg-slate-100 border border-slate-200 text-xs text-slate-800 hover:bg-slate-200 transition-colors shrink-0"
                 title="Manage B2B Profile & RFQs"
               >
-                <div className="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-[10px]">
+                <div className="w-5 h-5 sm:w-5 sm:h-5 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-[10px] sm:text-[10px] shrink-0">
                   {user.name.charAt(0)}
                 </div>
-                <span className="max-w-[110px] truncate font-medium">
+                <span className="hidden sm:block max-w-[110px] truncate font-medium">
                   {user.company || user.name}
                 </span>
               </button>
             ) : (
-              <div className="hidden md:flex items-center gap-1.5">
-                <button
-                  onClick={() => openAuthModal("signin")}
-                  className="h-10 sm:h-11 px-3 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-800 hover:text-slate-900 hover:bg-slate-200 transition-colors flex items-center justify-center gap-1.5"
-                >
-                  <User className="w-3.5 h-3.5 text-red-600" />
-                  <span>Sign In</span>
-                </button>
-              </div>
+              <button
+                onClick={() => openAuthModal("signin")}
+                className="hidden sm:flex h-9 w-9 sm:h-11 sm:w-auto px-0 sm:px-3 rounded-lg sm:rounded-xl bg-white sm:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-800 hover:text-slate-900 hover:bg-slate-200 transition-colors items-center justify-center gap-1.5 shrink-0"
+              >
+                <User className="w-[18px] h-[18px] sm:w-3.5 sm:h-3.5 text-red-600 shrink-0" />
+                <span className="hidden sm:inline">Sign In</span>
+              </button>
             )}
 
             {/* Quotation Cart Button */}
             <button
               onClick={openCart}
-              className="flex items-center justify-center gap-2 sm:gap-2.5 h-10 sm:h-11 px-3 sm:px-4 rounded-xl bg-gradient-to-r from-red-600 via-red-700 to-red-800 hover:from-red-700 hover:to-red-900 text-white font-bold transition-all group relative shadow-md shadow-red-600/20 active:scale-95 border border-red-500/40"
+              className="flex items-center justify-center gap-2 sm:gap-2.5 h-9 w-9 sm:h-11 sm:w-auto px-0 sm:px-4 rounded-lg sm:rounded-xl bg-[#c52328] sm:bg-gradient-to-r sm:from-red-600 sm:via-red-700 sm:to-red-800 hover:opacity-90 sm:hover:from-red-700 sm:hover:to-red-900 text-white font-bold transition-all group relative active:scale-95 border border-transparent sm:border-red-500/40 shrink-0 shadow-none sm:shadow-md sm:shadow-red-600/20"
               aria-label="Quotation Cart"
             >
-              <div className="relative">
-                <ShoppingCart className="w-4 h-4 text-white group-hover:scale-105 transition-transform" />
+              <div className="relative shrink-0 flex items-center justify-center">
+                <ShoppingCart className="w-[18px] h-[18px] sm:w-4 sm:h-4 text-white sm:group-hover:scale-105 transition-transform" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-2.5 -right-2.5 bg-zinc-900 text-white border border-zinc-700 font-black text-[9px] rounded-full w-4 h-4 flex items-center justify-center tabular-nums shadow-xs">
+                  <span className="absolute -top-[14px] -right-[14px] sm:-top-2.5 sm:-right-2.5 bg-slate-600 sm:bg-zinc-900 text-white border-2 border-white sm:border-zinc-700 font-bold sm:font-black text-[9px] rounded-full w-5 h-5 sm:w-4 sm:h-4 flex items-center justify-center tabular-nums shadow-sm">
                     {totalItems > 99 ? "99+" : totalItems}
                   </span>
                 )}
@@ -229,10 +227,10 @@ export const Header: React.FC = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="lg:hidden h-10 sm:h-11 px-3 text-slate-700 hover:text-slate-900 rounded-xl hover:bg-slate-100 border border-slate-200 flex items-center justify-center"
+              className="lg:hidden h-9 w-9 sm:h-11 sm:w-auto px-0 sm:px-3 bg-white text-slate-700 hover:text-slate-900 rounded-lg sm:rounded-xl hover:bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0"
               aria-label="Toggle navigation"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 shrink-0" /> : <Menu className="w-5 h-5 shrink-0" />}
             </button>
           </div>
         </div>

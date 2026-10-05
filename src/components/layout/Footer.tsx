@@ -37,27 +37,27 @@ export const Footer: React.FC = () => {
           </h4>
           <ul className="space-y-2">
             <li>
-              <Link to="/about-lapp" className="hover:text-blue-400 transition-colors">
+              <Link to="/about-lapp" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">
                 LAPP Kabel Stuttgart
               </Link>
             </li>
             <li>
-              <Link to="/about-eaton" className="hover:text-blue-400 transition-colors">
+              <Link to="/about-eaton" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">
                 EATON Moeller Switchgear
               </Link>
             </li>
             <li>
-              <Link to="/about-mennekes" className="hover:text-blue-400 transition-colors">
+              <Link to="/about-mennekes" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">
                 MENNEKES Industrial Plugs
               </Link>
             </li>
             <li>
-              <Link to="/about-partex" className="hover:text-blue-400 transition-colors">
+              <Link to="/about-partex" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">
                 PARTEX Marking Systems
               </Link>
             </li>
             <li>
-              <Link to="/olflex-cables" className="hover:text-blue-400 transition-colors">
+              <Link to="/olflex-cables" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">
                 ÖLFLEX® Cable Center
               </Link>
             </li>
@@ -71,32 +71,32 @@ export const Footer: React.FC = () => {
           </h4>
           <ul className="space-y-2">
             <li>
-              <Link to="/#catalog" className="hover:text-blue-400 transition-colors">
+              <a href="/#catalog" className="hover:text-blue-400 transition-colors">
                 ÖLFLEX® Flexible Control Cables
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/#catalog" className="hover:text-blue-400 transition-colors">
+              <a href="/#catalog" className="hover:text-blue-400 transition-colors">
                 Industrial Ethernet &amp; PROFINET
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/#catalog" className="hover:text-blue-400 transition-colors">
+              <a href="/#catalog" className="hover:text-blue-400 transition-colors">
                 CEE 16A/32A Watertight Plugs
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/#catalog" className="hover:text-blue-400 transition-colors">
+              <a href="/#catalog" className="hover:text-blue-400 transition-colors">
                 Motor Starters &amp; Contactors
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/#catalog" className="hover:text-blue-400 transition-colors">
+              <a href="/#catalog" className="hover:text-blue-400 transition-colors">
                 SKINTOP® Cable Gland Systems
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/quotation" className="hover:text-blue-400 transition-colors font-medium text-blue-400">
+              <Link to="/quotation" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors font-medium text-blue-400">
                 Official GST Quotation Page
               </Link>
             </li>
@@ -104,31 +104,37 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Col 4: Corporate Contact */}
-        <div className="space-y-3">
-          <h4 className="text-slate-900 font-semibold text-sm tracking-wide">
-            Bangalore Sales Desk
+        <div className="space-y-4">
+          <h4 className="text-slate-900 font-bold text-sm tracking-wide">
+            Head Office
           </h4>
-          <div className="space-y-2.5">
-            <div className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-              <span>
-                No. 12/3, S.P. Road Cross, Bangalore - 560002, Karnataka, India
-              </span>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-1" />
+              <div className="flex flex-col">
+                <span className="font-semibold text-slate-700">Siddhi Kabel Corporation Private Limited</span>
+                <span>No.3, 1st Main Road, 1st Block,</span>
+                <span>Banashankari 3rd Stage,</span>
+                <span>Bangalore 560 085.</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-blue-400 shrink-0" />
-              <a href="tel:+919900048877" className="hover:text-blue-400 transition-colors font-mono">
-                +91 99000 48877
-              </a>
+            <div className="flex items-start gap-3">
+              <Phone className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+              <div className="flex flex-col">
+                <a href="tel:08026720440" className="hover:text-rose-400 transition-colors">080 - 2672 0440</a>
+                <a href="tel:+919620000947" className="hover:text-rose-400 transition-colors">096200 00947</a>
+                <a href="tel:+919886058511" className="hover:text-rose-400 transition-colors">098860 58511</a>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-blue-400 shrink-0" />
-              <a href="mailto:sales@siddhikabel.com" className="hover:text-blue-400 transition-colors">
-                sales@siddhikabel.com
-              </a>
+            <div className="flex items-start gap-3">
+              <Mail className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+              <div className="flex flex-col">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@siddhikabel.com" target="_blank" rel="noopener noreferrer" className="hover:text-rose-400 transition-colors">info@siddhikabel.com</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=guru@siddhikabel.com" target="_blank" rel="noopener noreferrer" className="hover:text-rose-400 transition-colors">guru@siddhikabel.com</a>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-slate-600">
-              <Clock className="w-4 h-4 text-slate-600 shrink-0" />
+            <div className="flex items-center gap-3 text-slate-600">
+              <Clock className="w-4 h-4 text-rose-400 shrink-0" />
               <span>Mon - Sat: 9:30 AM - 7:00 PM</span>
             </div>
           </div>

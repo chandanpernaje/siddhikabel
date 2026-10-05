@@ -366,35 +366,37 @@ export const ProductDetail: React.FC = () => {
                 
                 {/* Grid for Variant Options */}
                 <div className="space-y-5">
-                  {!isSingleCore && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {!isSingleCore && (
+                      <div>
+                        <label className="font-bold text-slate-800 text-sm block mb-2">1. Core</label>
+                        <div className="grid grid-cols-3 gap-2">
+                          {['2 Core', '3 Core', '4 Core', '5 Core', '6 Core', '7 Core', '8 Core', '10 Core', '12 Core', '14 Core', '16 Core', '18 Core', '20 Core', '25 Core', '30 Core', '34 Core', '40 Core', '50 Core'].map(core => (
+                            <button
+                              key={core}
+                              onClick={() => setSelectedCore(core)}
+                              className={`h-9 w-full flex items-center justify-center px-1 text-xs font-bold rounded-lg border transition-colors ${selectedCore === core ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
+                            >
+                              {core}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     <div>
-                      <label className="font-bold text-slate-800 text-sm block mb-2">1. Core</label>
-                      <div className="flex flex-wrap gap-2">
-                        {['2 Core', '3 Core', '4 Core', '5 Core', '6 Core', '7 Core', '8 Core', '10 Core', '12 Core', '14 Core', '16 Core', '18 Core', '20 Core', '25 Core', '30 Core', '34 Core', '40 Core', '50 Core'].map(core => (
+                      <label className="font-bold text-slate-800 text-sm block mb-2">{isSingleCore ? '1. Size (Sqmm)' : '2. Size (Sqmm)'}</label>
+                      <div className="grid grid-cols-3 gap-2">
+                        {['0.5 Sqmm', '0.75 Sqmm', '1 Sqmm', '1.5 Sqmm', '2.5 Sqmm', '4 Sqmm', '6 Sqmm', '10 Sqmm', '16 Sqmm', '25 Sqmm', '35 Sqmm'].map(size => (
                           <button
-                            key={core}
-                            onClick={() => setSelectedCore(core)}
-                            className={`px-3 py-1.5 text-xs font-bold rounded-lg border transition-colors ${selectedCore === core ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
+                            key={size}
+                            onClick={() => setSelectedSize(size)}
+                            className={`h-9 w-full flex items-center justify-center px-1 text-xs font-bold rounded-lg border transition-colors ${selectedSize === size ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
                           >
-                            {core}
+                            {size}
                           </button>
                         ))}
                       </div>
-                    </div>
-                  )}
-
-                  <div>
-                    <label className="font-bold text-slate-800 text-sm block mb-2">{isSingleCore ? '1. Size (Sqmm)' : '2. Size (Sqmm)'}</label>
-                    <div className="flex flex-wrap gap-2">
-                      {['0.5 Sqmm', '0.75 Sqmm', '1 Sqmm', '1.5 Sqmm', '2.5 Sqmm', '4 Sqmm', '6 Sqmm', '10 Sqmm', '16 Sqmm', '25 Sqmm', '35 Sqmm'].map(size => (
-                        <button
-                          key={size}
-                          onClick={() => setSelectedSize(size)}
-                          className={`px-3 py-1.5 text-xs font-bold rounded-lg border transition-colors ${selectedSize === size ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
-                        >
-                          {size}
-                        </button>
-                      ))}
                     </div>
                   </div>
 

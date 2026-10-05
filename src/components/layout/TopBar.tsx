@@ -1,47 +1,41 @@
 import React from "react";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, Facebook, Twitter, Linkedin } from "lucide-react";
 
 export const TopBar: React.FC = () => {
   return (
-    <div className="bg-zinc-700 border-b border-zinc-800 text-xs text-zinc-100 py-1.5 sm:py-2 px-4 sm:px-6 lg:px-8">
+    <div className="bg-zinc-600 border-b border-zinc-700 text-xs text-zinc-200 py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-4">
-        {/* Mobile View ONLY: Show ONLY Contact Number & Email */}
-        <div className="flex md:hidden items-center justify-center gap-3 w-full text-center py-0.5">
-          <a
-            href="tel:+919900048877"
-            className="flex items-center gap-1.5 text-white font-bold hover:text-red-400 transition-colors shrink-0"
-          >
-            <Phone className="w-3.5 h-3.5 text-red-500 shrink-0" />
-            <span className="font-mono text-[11px]">+91 99000 48877</span>
+        {/* Left Side: Social Icons */}
+        <div className="flex items-center gap-4">
+          <a href="https://www.facebook.com/siddhikabel/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Facebook">
+            <Facebook className="w-3.5 h-3.5" />
           </a>
-
-          <span className="text-zinc-500 font-bold">•</span>
-
-          <a
-            href="mailto:sales@siddhikabel.com"
-            className="flex items-center gap-1.5 text-zinc-100 font-semibold hover:text-red-400 transition-colors shrink-0"
-          >
-            <Mail className="w-3.5 h-3.5 text-red-500 shrink-0" />
-            <span className="text-[11px]">sales@siddhikabel.com</span>
+          <a href="https://x.com/siddhikabel" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Twitter">
+            <Twitter className="w-3.5 h-3.5" />
+          </a>
+          <a href="#" className="hover:text-white transition-colors" aria-label="LinkedIn">
+            <Linkedin className="w-3.5 h-3.5" />
           </a>
         </div>
 
-        {/* Desktop View ONLY: Full top bar with 4 items equal spacing */}
-        <div className="hidden md:flex items-center justify-between w-full">
+        {/* Right Side: Contact Info */}
+        <div className="flex items-center gap-4 sm:gap-6">
           <a
-            href="tel:+919900048877"
-            className="flex items-center gap-1.5 hover:text-red-400 transition-colors text-white font-bold"
+            href="tel:+919620000947"
+            className="flex items-center gap-1.5 hover:text-white transition-colors tracking-wide"
           >
-            <Phone className="w-3.5 h-3.5 text-red-500" />
-            <span className="font-mono">+91 99000 48877</span>
+            <Phone className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+            <span className="font-semibold">096200 00947, 098860 58511</span>
           </a>
 
           <a
-            href="mailto:sales@siddhikabel.com"
-            className="flex items-center gap-1.5 hover:text-red-400 transition-colors text-zinc-200 font-medium"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=info@siddhikabel.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors tracking-wide"
           >
-            <Mail className="w-3.5 h-3.5 text-red-500" />
-            <span>sales@siddhikabel.com</span>
+            <Mail className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+            <span className="font-semibold">info@siddhikabel.com</span>
           </a>
         </div>
       </div>
