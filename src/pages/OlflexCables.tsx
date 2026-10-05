@@ -14,7 +14,7 @@ const SECTIONS = [
   { id: '110', title: 'ÖLFLEX® CLASSIC 110', data: OLFLEX_110_PRODUCTS, image: '/images/cable-olflex-cores.png' },
   { id: '110sy', title: 'ÖLFLEX® CLASSIC 110 SY', data: OLFLEX_110SY_PRODUCTS, image: '/images/products/lapp-02.jpg' },
   { id: '110cy', title: 'ÖLFLEX® CLASSIC 110 CY', data: OLFLEX_110CY_PRODUCTS, image: '/images/products/lapp-03.jpg' },
-  { id: '100', title: 'ÖLFLEX® CLASSIC 100', data: OLFLEX_100I_PRODUCTS, image: '/images/products/lapp-01.jpg' }
+  { id: '100', title: 'ÖLFLEX® CLASSIC 100I', data: OLFLEX_100I_PRODUCTS, image: '/images/products/lapp-01.jpg' }
 ];
 
 const CompactCableCard = ({ product, image, onQuote }: { product: OlflexProduct, image: string, onQuote: (p: OlflexProduct) => void }) => {
@@ -170,7 +170,7 @@ export const OlflexCables: React.FC = () => {
               onClick={() => setActiveFilter('100')}
               className={`whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${activeFilter === '100' ? 'bg-amber-500 text-white shadow-sm ring-2 ring-amber-300 ring-offset-1' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'}`}
             >
-              CLASSIC 100 (Color Coded)
+              CLASSIC 100I (Colour Coded)
             </button>
           </div>
         </div>
