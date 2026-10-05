@@ -53,17 +53,17 @@ export const AboutEaton: React.FC = () => {
       <div className="max-w-7xl mx-auto w-full space-y-10">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-slate-500">
-          <Link to="/" className="hover:text-amber-600 transition-colors font-medium">
+          <Link to="/" className="hover:text-blue-600 transition-colors font-medium">
             Home
           </Link>
           <span>/</span>
-          <span className="text-amber-700 font-bold">Authorized Brands</span>
+          <span className="text-blue-700 font-bold">Authorized Brands</span>
           <span>/</span>
           <span className="text-slate-900 font-bold">EATON - Moeller Switchgear</span>
         </div>
 
         {/* Hero Card */}
-        <div className="rounded-3xl bg-white border border-slate-200 p-8 sm:p-12 relative overflow-hidden shadow-lg">
+        <div className="rounded-3xl bg-gradient-to-br from-blue-50 via-white to-blue-50/30 border-blue-200/60 shadow-blue-500/10 p-8 sm:p-12 relative overflow-hidden shadow-lg">
           <div className="max-w-3xl space-y-4">
             <div className="flex items-center gap-3">
               <img
@@ -71,7 +71,7 @@ export const AboutEaton: React.FC = () => {
                 alt="Eaton Logo"
                 className="h-10 object-contain bg-slate-50 p-1.5 rounded-xl border border-slate-100"
               />
-              <span className="text-xs uppercase font-mono text-amber-700 font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">
+              <span className="text-xs uppercase font-mono text-blue-700 font-bold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
                 Germany / USA · Tier-1 Distribution Partner
               </span>
             </div>
@@ -86,7 +86,7 @@ export const AboutEaton: React.FC = () => {
             <div className="flex flex-wrap items-center gap-4 pt-3">
               <button
                 onClick={() => setRfqTopic("EATON COMPLETE SWITCHGEAR BOM")}
-                className="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors flex items-center gap-2 shadow-sm"
+                className="px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors flex items-center gap-2 shadow-sm"
               >
                 <span>Request Switchgear Quotation</span>
                 <ArrowRight className="w-4 h-4" />
@@ -95,7 +95,7 @@ export const AboutEaton: React.FC = () => {
                 to="/quotation"
                 className="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 font-bold text-xs rounded-xl transition-colors flex items-center gap-2"
               >
-                <FileSpreadsheet className="w-4 h-4 text-amber-500" />
+                <FileSpreadsheet className="w-4 h-4 text-blue-500" />
                 <span>Go to Quotation Builder</span>
               </Link>
             </div>
@@ -113,18 +113,19 @@ export const AboutEaton: React.FC = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {productRanges.map((cat, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden flex flex-col justify-between hover:border-amber-500/60 transition-all hover:-translate-y-1 group shadow-xs hover:shadow-lg"
+                className="group relative flex flex-col rounded-3xl h-full bg-white border border-slate-200 hover:border-blue-400 transition-all duration-300 hover:-translate-y-1.5 shadow-sm hover:shadow-xl overflow-hidden cursor-pointer"
+                onClick={() => setRfqTopic(cat.topic)}
               >
-                <div className="aspect-[16/10] bg-slate-50 flex items-center justify-center p-4 overflow-hidden relative border-b border-slate-100">
+                <div className="relative aspect-[4/3] bg-blue-50/50 flex items-center justify-center p-2 sm:p-4 overflow-hidden border-b border-slate-200/70">
                   <img
                     src={cat.img}
                     alt={cat.title}
                     referrerPolicy="no-referrer"
-                    className="max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain p-1 sm:p-2 group-hover:scale-108 transition-transform duration-500 ease-out drop-shadow-sm"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.onerror = null;
@@ -133,28 +134,16 @@ export const AboutEaton: React.FC = () => {
                   />
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="flex flex-col flex-1 p-3 sm:p-4 items-center text-center justify-center space-y-2">
                   <div>
-                    <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
-                      {cat.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                      {cat.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <button
-                      onClick={() => setRfqTopic(cat.topic)}
-                      className="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1"
-                    >
-                      <span>Request Quotation</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                    <span className="text-[11px] text-slate-400 font-mono font-bold">
-                      In Stock Bangalore
+                    <span className="px-2.5 py-1 rounded-lg border text-[10px] sm:text-[11px] tracking-wider uppercase font-bold bg-slate-100 text-slate-700 border-slate-200">
+                      EATON
                     </span>
                   </div>
+                  
+                  <h4 className="text-[12px] sm:text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
+                    {cat.title}
+                  </h4>
                 </div>
               </div>
             ))}

@@ -11,19 +11,19 @@ import {
 
 export const Footer: React.FC = () => {
   return (
-    <footer id="contact" className="bg-slate-50 border-t border-slate-200 text-slate-600 text-xs">
+    <footer id="contact" className="bg-sky-50 border-t border-sky-100 text-slate-600 text-xs">
 
       {/* Main Footer Links */}
       <div className="max-w-7xl mx-auto w-full py-14 px-4 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
         {/* Col 1: Identity */}
         <div className="lg:col-span-2 space-y-4">
-          <div className="bg-white p-2.5 rounded-xl inline-block shadow-sm">
+          <Link to="/" className="inline-block">
             <img
               src="/images/siddhi-kabel-lockup.png"
               alt="Siddhi Kabel"
               className="h-10 w-auto object-contain"
             />
-          </div>
+          </Link>
 
           <p className="text-slate-600 leading-relaxed max-w-sm">
             Siddhi Kabel Corporation Private Limited is one of the leading and reliable suppliers of world class Industrial Electrical, Automation & Safety Products with over 15 years of industry experience.
@@ -136,7 +136,7 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Legal bar */}
-      <div className="border-t border-slate-200 bg-slate-100 py-6 px-4 lg:px-8">
+      <div className="border-t border-sky-100 bg-sky-100/50 py-6 px-4 lg:px-8">
         <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
           <div>
             &copy; {new Date().getFullYear()} Siddhi Kabel Corporation. All Rights Reserved. ÖLFLEX®, UNITRONIC®, SKINTOP® are registered trademarks of LAPP Group.

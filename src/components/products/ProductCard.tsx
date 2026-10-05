@@ -28,16 +28,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     const b = brand.toLowerCase();
     if (b.includes("lapp")) {
       return {
-        cardBg: "bg-gradient-to-b from-blue-500/10 via-blue-50/70 to-white",
-        cardBorder: "border-blue-200/90 hover:border-blue-400 hover:shadow-blue-500/20",
-        topStrip: "border-t-4 border-t-blue-500",
-        imageBg: "bg-gradient-to-b from-blue-100/50 via-blue-50/40 to-white",
-        badge: "bg-blue-100/90 text-blue-900 border-blue-300 font-bold",
-        titleHover: "hover:text-blue-700",
-        bullet: "text-blue-500",
-        priceText: "text-blue-950",
-        btnGradient: "bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white shadow-md shadow-indigo-500/25",
-        accentGlow: "group-hover:shadow-blue-500/15",
+        cardBg: "bg-gradient-to-b from-orange-500/10 via-orange-50/70 to-white",
+        cardBorder: "border-orange-200/90 hover:border-orange-400 hover:shadow-orange-500/20",
+        topStrip: "border-t-4 border-t-orange-500",
+        imageBg: "bg-gradient-to-b from-orange-100/50 via-orange-50/40 to-white",
+        badge: "bg-orange-100/90 text-orange-900 border-orange-300 font-bold",
+        titleHover: "hover:text-orange-700",
+        bullet: "text-orange-500",
+        priceText: "text-orange-950",
+        btnGradient: "bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/25",
+        accentGlow: "group-hover:shadow-orange-500/15",
       };
     }
     if (b.includes("eaton")) {
@@ -56,30 +56,30 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     }
     if (b.includes("mennekes")) {
       return {
-        cardBg: "bg-gradient-to-b from-rose-500/10 via-rose-50/70 to-white",
-        cardBorder: "border-rose-200/90 hover:border-rose-400 hover:shadow-rose-500/20",
-        topStrip: "border-t-4 border-t-rose-500",
-        imageBg: "bg-gradient-to-b from-rose-100/50 via-rose-50/40 to-white",
-        badge: "bg-rose-100/90 text-rose-900 border-rose-300 font-bold",
-        titleHover: "hover:text-rose-700",
-        bullet: "text-rose-500",
-        priceText: "text-rose-950",
-        btnGradient: "bg-gradient-to-r from-rose-600 to-red-500 hover:from-rose-700 hover:to-red-600 text-white shadow-md shadow-rose-500/25",
-        accentGlow: "group-hover:shadow-rose-500/15",
+        cardBg: "bg-gradient-to-b from-red-600/10 via-red-50/70 to-white",
+        cardBorder: "border-red-200/90 hover:border-red-500 hover:shadow-red-600/20",
+        topStrip: "border-t-4 border-t-red-600",
+        imageBg: "bg-gradient-to-b from-red-100/50 via-red-50/40 to-white",
+        badge: "bg-red-100/90 text-red-900 border-red-300 font-bold",
+        titleHover: "hover:text-red-700",
+        bullet: "text-red-600",
+        priceText: "text-red-950",
+        btnGradient: "bg-gradient-to-r from-red-700 to-red-600 hover:from-red-800 hover:to-red-700 text-white shadow-md shadow-red-600/25",
+        accentGlow: "group-hover:shadow-red-600/15",
       };
     }
     if (b.includes("partex")) {
       return {
-        cardBg: "bg-gradient-to-b from-emerald-500/10 via-emerald-50/70 to-white",
-        cardBorder: "border-emerald-200/90 hover:border-emerald-400 hover:shadow-emerald-500/20",
-        topStrip: "border-t-4 border-t-emerald-500",
-        imageBg: "bg-gradient-to-b from-emerald-100/50 via-emerald-50/40 to-white",
-        badge: "bg-emerald-100/90 text-emerald-900 border-emerald-300 font-bold",
-        titleHover: "hover:text-emerald-700",
-        bullet: "text-emerald-500",
-        priceText: "text-emerald-950",
-        btnGradient: "bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 text-white shadow-md shadow-emerald-500/25",
-        accentGlow: "group-hover:shadow-emerald-500/15",
+        cardBg: "bg-gradient-to-b from-zinc-500/10 via-zinc-50/70 to-white",
+        cardBorder: "border-zinc-200/90 hover:border-zinc-400 hover:shadow-zinc-500/20",
+        topStrip: "border-t-4 border-t-zinc-500",
+        imageBg: "bg-gradient-to-b from-zinc-100/50 via-zinc-50/40 to-white",
+        badge: "bg-zinc-100/90 text-zinc-900 border-zinc-300 font-bold",
+        titleHover: "hover:text-zinc-700",
+        bullet: "text-zinc-500",
+        priceText: "text-zinc-950",
+        btnGradient: "bg-gradient-to-r from-zinc-600 to-zinc-500 hover:from-zinc-700 hover:to-zinc-600 text-white shadow-md shadow-zinc-500/25",
+        accentGlow: "group-hover:shadow-zinc-500/15",
       };
     }
     return {
@@ -100,76 +100,70 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
   return (
     <div
-      className={`group relative flex flex-col rounded-2xl ${style.cardBg} border ${style.cardBorder} ${style.topStrip} transition-all duration-300 hover:-translate-y-1.5 shadow-sm hover:shadow-xl ${style.accentGlow} overflow-hidden`}
+      className={`group relative flex flex-col rounded-3xl h-full ${style.cardBg} border ${style.cardBorder} ${style.topStrip} transition-all duration-300 hover:-translate-y-1.5 shadow-sm hover:shadow-xl ${style.accentGlow} overflow-hidden`}
     >
       {/* Product Image Slot with tinted brand background */}
-      <div className={`relative aspect-[4/3] ${style.imageBg} flex items-center justify-center p-4 overflow-hidden border-b border-slate-200/70`}>
+      <div className={`relative aspect-[4/3] ${style.imageBg} flex items-center justify-center p-2 sm:p-4 overflow-hidden border-b border-slate-200/70`}>
         {product.image ? (
-          <img
-            src={product.image}
-            alt={product.name}
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-contain p-2 group-hover:scale-108 transition-transform duration-500 ease-out drop-shadow-sm"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.onerror = null;
-              target.src = "/images/card-olflex.jpg";
-            }}
-          />
+          isLappCategory ? (
+            <Link to="/olflex-cables" className="w-full h-full block">
+              <img
+                src={product.image}
+                alt={product.name}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-contain p-1 sm:p-2 group-hover:scale-108 transition-transform duration-500 ease-out drop-shadow-sm"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "/images/card-olflex.jpg";
+                }}
+              />
+            </Link>
+          ) : (
+            <img
+              src={product.image}
+              alt={product.name}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-contain p-1 sm:p-2 group-hover:scale-108 transition-transform duration-500 ease-out drop-shadow-sm"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.onerror = null;
+                target.src = "/images/card-olflex.jpg";
+              }}
+            />
+          )
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 bg-white/60 rounded-lg">
-            <ShieldCheck className="w-10 h-10 mb-2 opacity-50 text-blue-500" />
-            <span className="text-xs uppercase tracking-wider font-mono font-bold">Industrial OEM Part</span>
+            <ShieldCheck className="w-8 h-8 sm:w-10 sm:h-10 mb-2 opacity-50 text-blue-500" />
+            <span className="text-[10px] sm:text-xs uppercase tracking-wider font-mono font-bold text-center">Industrial Part</span>
           </div>
         )}
-
-        {/* Quick View Button - Removed as per user request */}
-
-        {/* Stock tag */}
-        <div className="absolute top-3 left-3 text-[11px] font-mono text-emerald-800 font-bold flex items-center gap-1.5 bg-white/95 px-2 py-0.5 rounded-md border border-emerald-300 shadow-2xs">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>{product.stock.includes("(") ? product.stock.split("(")[0].trim() : "Ready Stock"}</span>
-        </div>
       </div>
 
       {/* Card Content & Metadata */}
-      <div className="flex flex-col flex-1 p-4 sm:p-5">
-        {/* Brand & Part pill */}
-        <div className="flex flex-wrap items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-wider font-mono mb-2 min-w-0">
-          <span className={`px-2 py-0.5 rounded border text-[10px] shrink-0 font-bold ${style.badge}`}>
+      <div className="flex flex-col flex-1 p-3 sm:p-4 items-center text-center justify-center space-y-2">
+        {/* Brand pill/logo equivalent */}
+        <div>
+          <span className={`px-2.5 py-1 rounded-lg border text-[10px] sm:text-[11px] tracking-wider uppercase font-bold ${style.badge}`}>
             {product.brand}
           </span>
-          <span aria-hidden="true" className="text-slate-300">·</span>
-          <span className="text-slate-600 font-semibold truncate max-w-[140px] sm:max-w-none">{product.partNo}</span>
         </div>
 
         {/* Product Title */}
-        {isLappCat1 ? (
+        {isLappCategory ? (
           <Link
             to="/olflex-cables"
-            className={`text-xs sm:text-sm font-bold text-slate-900 ${style.titleHover} transition-colors line-clamp-2 mb-2 sm:mb-3 leading-snug break-words hyphens-auto`}
+            className={`text-[12px] sm:text-sm font-bold text-slate-900 ${style.titleHover} transition-colors line-clamp-2 leading-snug`}
           >
             {product.name}
           </Link>
         ) : (
           <div
-            className={`text-xs sm:text-sm font-bold text-slate-900 transition-colors line-clamp-2 mb-2 sm:mb-3 leading-snug break-words hyphens-auto`}
+            className={`text-[12px] sm:text-sm font-bold text-slate-900 transition-colors line-clamp-2 leading-snug`}
           >
             {product.name}
           </div>
         )}
-
-        {/* Key Specs bullets */}
-        <ul className="space-y-1 mb-3 sm:mb-4 text-[11px] sm:text-xs text-slate-700 flex-1 font-medium min-w-0">
-          {product.specs.slice(0, 2).map((spec, i) => (
-            <li key={i} className="line-clamp-1 flex items-baseline gap-1.5 min-w-0">
-              <span className={`${style.bullet} font-mono text-[10px] font-bold shrink-0`}>▪</span>
-              <span className="truncate">{spec}</span>
-            </li>
-          ))}
-        </ul>
-
-        {/* Primary Buy / Add to RFQ CTA - Removed as per user request */}
       </div>
     </div>
   );

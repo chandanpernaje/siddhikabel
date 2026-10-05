@@ -110,11 +110,11 @@ export const AuthModal: React.FC = () => {
         onClick={closeAuthModal}
       />
 
-      <div className="relative w-full max-w-lg bg-gradient-to-br from-amber-50 via-white to-orange-50 border border-amber-200 rounded-3xl shadow-2xl shadow-amber-500/20 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 my-auto text-slate-900 ring-1 ring-white/50">
+      <div className="relative w-full max-w-lg bg-gradient-to-br from-blue-50 via-white to-sky-50 border border-blue-200 rounded-3xl shadow-2xl shadow-blue-500/20 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 my-auto text-slate-900 ring-1 ring-white/50">
         {/* Modal Header */}
-        <div className="px-5 py-4 border-b border-amber-200/60 flex items-center justify-between bg-gradient-to-r from-amber-500/10 via-transparent to-orange-500/10">
+        <div className="px-5 py-4 border-b border-blue-200/60 flex items-center justify-between bg-gradient-to-r from-blue-500/10 via-transparent to-sky-500/10">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 flex items-center justify-center font-bold">
+            <div className="w-8 h-8 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-600 flex items-center justify-center font-bold">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
@@ -137,7 +137,7 @@ export const AuthModal: React.FC = () => {
         </div>
 
         {/* Tab Selector */}
-        <div className="flex border-b border-amber-200/60 bg-white/40 p-1.5 gap-1.5 backdrop-blur-sm">
+        <div className="flex border-b border-blue-200/60 bg-white/40 p-1.5 gap-1.5 backdrop-blur-sm">
           <button
             type="button"
             onClick={() => {
@@ -146,8 +146,8 @@ export const AuthModal: React.FC = () => {
             }}
             className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all ${
               tab === "signin"
-                ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md shadow-amber-500/20 border-transparent"
-                : "text-amber-800 hover:text-amber-900 hover:bg-amber-100/50"
+                ? "bg-gradient-to-r from-blue-500 to-sky-500 text-white shadow-md shadow-blue-500/20 border-transparent"
+                : "text-blue-800 hover:text-blue-900 hover:bg-blue-100/50"
             }`}
           >
             Sign In
@@ -160,8 +160,8 @@ export const AuthModal: React.FC = () => {
             }}
             className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all ${
               tab === "signup"
-                ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md shadow-amber-500/20 border-transparent"
-                : "text-amber-800 hover:text-amber-900 hover:bg-amber-100/50"
+                ? "bg-gradient-to-r from-blue-500 to-sky-500 text-white shadow-md shadow-blue-500/20 border-transparent"
+                : "text-blue-800 hover:text-blue-900 hover:bg-blue-100/50"
             }`}
           >
             Create Account
@@ -197,7 +197,7 @@ export const AuthModal: React.FC = () => {
                   }}
                   className={`w-full bg-slate-50 border ${
                     signInFieldErrors.identifier ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                  } rounded-xl pl-9 pr-3 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                  } rounded-xl pl-9 pr-3 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                 />
               </div>
               {signInFieldErrors.identifier && (
@@ -225,7 +225,7 @@ export const AuthModal: React.FC = () => {
                   }}
                   className={`w-full bg-slate-50 border ${
                     signInFieldErrors.password ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                  } rounded-xl pl-9 pr-3 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                  } rounded-xl pl-9 pr-3 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                 />
               </div>
               {signInFieldErrors.password && (
@@ -248,7 +248,7 @@ export const AuthModal: React.FC = () => {
                     setSignInPassword("password123");
                     login("procurement@apex-automation.in", "password123");
                   }}
-                  className="p-2.5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-xl text-left transition-all"
+                  className="p-2.5 bg-slate-50 hover:bg-blue-50/60 border border-slate-200 hover:border-blue-300 rounded-xl text-left transition-all"
                 >
                   <div className="font-bold text-[11px] text-slate-800 truncate">
                     Apex Automation
@@ -264,7 +264,7 @@ export const AuthModal: React.FC = () => {
                     setSignInPassword("password123");
                     login("9900000000", "password123");
                   }}
-                  className="p-2.5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-xl text-left transition-all"
+                  className="p-2.5 bg-slate-50 hover:bg-blue-50/60 border border-slate-200 hover:border-blue-300 rounded-xl text-left transition-all"
                 >
                   <div className="font-bold text-[11px] text-slate-800 truncate">
                     LAPP OEM Partner
@@ -279,7 +279,7 @@ export const AuthModal: React.FC = () => {
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md active:scale-98"
+                className="w-full py-3 bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-600 hover:to-sky-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md active:scale-98"
               >
                 Sign In to Account
               </button>
@@ -317,7 +317,7 @@ export const AuthModal: React.FC = () => {
                   }}
                   className={`w-full bg-slate-50 border ${
                     signUpFieldErrors.company ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                  } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                  } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                 />
               </div>
               {signUpFieldErrors.company && (
@@ -347,7 +347,7 @@ export const AuthModal: React.FC = () => {
                     }}
                     className={`w-full bg-slate-50 border ${
                       signUpFieldErrors.name ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                   />
                 </div>
                 {signUpFieldErrors.name && (
@@ -375,7 +375,7 @@ export const AuthModal: React.FC = () => {
                     }}
                     className={`w-full bg-slate-50 border ${
                       signUpFieldErrors.phone ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium font-mono`}
+                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium font-mono`}
                   />
                 </div>
                 {signUpFieldErrors.phone && (
@@ -406,7 +406,7 @@ export const AuthModal: React.FC = () => {
                     }}
                     className={`w-full bg-slate-50 border ${
                       signUpFieldErrors.email ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                   />
                 </div>
                 {signUpFieldErrors.email && (
@@ -438,7 +438,7 @@ export const AuthModal: React.FC = () => {
                   }}
                   className={`w-full bg-slate-50 border ${
                     signUpFieldErrors.address ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                  } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                  } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                 />
               </div>
               {signUpFieldErrors.address && (
@@ -466,7 +466,7 @@ export const AuthModal: React.FC = () => {
                   }}
                   className={`w-full bg-slate-50 border ${
                     signUpFieldErrors.city ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                  } rounded-xl px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                  } rounded-xl px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                 />
                 {signUpFieldErrors.city && (
                   <p className="text-[10px] text-rose-600 font-semibold mt-1">
@@ -490,7 +490,7 @@ export const AuthModal: React.FC = () => {
                   }}
                   className={`w-full bg-slate-50 border ${
                     signUpFieldErrors.state ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                  } rounded-xl px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                  } rounded-xl px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                 />
                 {signUpFieldErrors.state && (
                   <p className="text-[10px] text-rose-600 font-semibold mt-1">
@@ -520,7 +520,7 @@ export const AuthModal: React.FC = () => {
                     }}
                     className={`w-full bg-slate-50 border ${
                       signUpFieldErrors.password ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                   />
                 </div>
                 {signUpFieldErrors.password && (
@@ -548,7 +548,7 @@ export const AuthModal: React.FC = () => {
                     }}
                     className={`w-full bg-slate-50 border ${
                       signUpFieldErrors.confirmPassword ? "border-rose-500 bg-rose-50/20" : "border-slate-300"
-                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-medium`}
+                    } rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium`}
                   />
                 </div>
                 {signUpFieldErrors.confirmPassword && (
@@ -562,7 +562,7 @@ export const AuthModal: React.FC = () => {
             <div className="pt-3">
               <button
                 type="submit"
-                className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md active:scale-98 flex items-center justify-center gap-2"
+                className="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md active:scale-98 flex items-center justify-center gap-2"
               >
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Create Corporate Account &amp; Continue</span>

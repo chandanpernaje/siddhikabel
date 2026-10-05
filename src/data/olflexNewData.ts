@@ -1,4 +1,4 @@
-import type { OlflexProduct } from "./types";
+import type { OlflexProduct } from "../types";
 
 export const NEW_OLFLEX_PRODUCTS: OlflexProduct[] = [
   {

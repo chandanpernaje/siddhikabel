@@ -124,27 +124,25 @@ export const Header: React.FC = () => {
     <>
       <header className="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm relative backdrop-blur-xl">
         {/* Bottom glowing multi-color brand accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-red-500 to-sky-400 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-zinc-500 via-red-500 to-zinc-400 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
           {/* Zone 1: Official Siddhi Kabel Logo Lockup */}
           <Link
             to="/"
-            className="flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded-xl"
+            className="flex items-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded-xl hover:opacity-80 transition-opacity"
             title="Siddhi Kabel Corporation - Authorized Industrial Distributor"
           >
-            <div className="bg-white hover:bg-slate-50 px-2.5 sm:px-3.5 py-1.5 rounded-xl shadow-xs border border-slate-200 transition-all flex items-center justify-center">
-              <img
-                src="/images/siddhi-kabel-lockup.png"
-                alt="Siddhi Kabel Corporation"
-                className="h-8 sm:h-10 w-auto object-contain transition-transform hover:scale-102"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.onerror = null;
-                  target.src = "/images/siddhi-kabel-logo.png";
-                }}
-              />
-            </div>
+            <img
+              src="/images/siddhi-kabel-lockup.png"
+              alt="Siddhi Kabel Corporation"
+              className="h-10 sm:h-12 w-auto object-contain transition-transform hover:scale-102"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.onerror = null;
+                target.src = "/images/siddhi-kabel-logo.png";
+              }}
+            />
           </Link>
 
           {/* Zone 2: Navigation Links */}
@@ -170,7 +168,7 @@ export const Header: React.FC = () => {
             {/* Search Trigger Button */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="p-2 sm:p-2.5 text-slate-700 hover:text-sky-600 hover:bg-sky-50 rounded-xl transition-colors flex items-center gap-2 border border-slate-200"
+              className="h-10 sm:h-11 px-3 text-slate-700 hover:text-sky-600 hover:bg-sky-50 rounded-xl transition-colors flex items-center justify-center gap-2 border border-slate-200"
               title="Search industrial parts"
               aria-label="Search"
             >
@@ -182,10 +180,10 @@ export const Header: React.FC = () => {
             {user ? (
               <button
                 onClick={openAccountModal}
-                className="hidden md:flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-800 hover:bg-slate-200 transition-colors"
+                className="hidden md:flex h-10 sm:h-11 items-center justify-center gap-2 px-3 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-800 hover:bg-slate-200 transition-colors"
                 title="Manage B2B Profile & RFQs"
               >
-                <div className="w-5 h-5 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-[10px]">
+                <div className="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-[10px]">
                   {user.name.charAt(0)}
                 </div>
                 <span className="max-w-[110px] truncate font-medium">
@@ -196,9 +194,9 @@ export const Header: React.FC = () => {
               <div className="hidden md:flex items-center gap-1.5">
                 <button
                   onClick={() => openAuthModal("signin")}
-                  className="px-3 py-2 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-800 hover:text-slate-900 hover:bg-slate-200 transition-colors flex items-center gap-1.5"
+                  className="h-10 sm:h-11 px-3 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-800 hover:text-slate-900 hover:bg-slate-200 transition-colors flex items-center justify-center gap-1.5"
                 >
-                  <User className="w-3.5 h-3.5 text-blue-600" />
+                  <User className="w-3.5 h-3.5 text-red-600" />
                   <span>Sign In</span>
                 </button>
               </div>
@@ -207,19 +205,19 @@ export const Header: React.FC = () => {
             {/* Quotation Cart Button */}
             <button
               onClick={openCart}
-              className="flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold transition-all group relative shadow-md shadow-blue-500/20 active:scale-95 border border-blue-500/40"
+              className="flex items-center justify-center gap-2 sm:gap-2.5 h-10 sm:h-11 px-3 sm:px-4 rounded-xl bg-gradient-to-r from-red-600 via-red-700 to-red-800 hover:from-red-700 hover:to-red-900 text-white font-bold transition-all group relative shadow-md shadow-red-600/20 active:scale-95 border border-red-500/40"
               aria-label="Quotation Cart"
             >
               <div className="relative">
                 <ShoppingCart className="w-4 h-4 text-white group-hover:scale-105 transition-transform" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-2.5 -right-2.5 bg-red-600 text-white border border-red-500/60 font-black text-[9px] rounded-full w-4 h-4 flex items-center justify-center tabular-nums shadow-xs">
+                  <span className="absolute -top-2.5 -right-2.5 bg-zinc-900 text-white border border-zinc-700 font-black text-[9px] rounded-full w-4 h-4 flex items-center justify-center tabular-nums shadow-xs">
                     {totalItems > 99 ? "99+" : totalItems}
                   </span>
                 )}
               </div>
               <div className="hidden sm:flex flex-col text-left">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-blue-100/90 leading-none">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-red-100/90 leading-none">
                   Quotation Cart
                 </span>
                 <span className="text-[11px] font-mono font-black text-white tabular-nums">
@@ -231,7 +229,7 @@ export const Header: React.FC = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="lg:hidden p-2 sm:p-2.5 text-slate-700 hover:text-slate-900 rounded-xl hover:bg-slate-100 border border-slate-200 flex items-center justify-center"
+              className="lg:hidden h-10 sm:h-11 px-3 text-slate-700 hover:text-slate-900 rounded-xl hover:bg-slate-100 border border-slate-200 flex items-center justify-center"
               aria-label="Toggle navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

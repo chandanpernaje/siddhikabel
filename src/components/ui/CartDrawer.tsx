@@ -48,25 +48,25 @@ export const CartDrawer: React.FC = () => {
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
-        <div className="w-screen max-w-md bg-white border-l border-slate-200 text-slate-900 flex flex-col shadow-2xl">
-          {/* Drawer Header with Rich Industrial Slate & Amber Background */}
-          <div className="px-6 py-5 border-b border-slate-800 flex items-center justify-between bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white shadow-sm">
+        <div className="w-screen max-w-md bg-slate-50 border-l border-slate-200 text-slate-900 flex flex-col shadow-2xl">
+          {/* Drawer Header with Premium Light Grey Background */}
+          <div className="px-6 py-5 border-b border-slate-200 flex items-center justify-between bg-slate-50 shadow-sm text-slate-900">
             <div className="flex items-center gap-3 min-w-0">
-              <div className="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center shrink-0">
-                <FileSpreadsheet className="w-5 h-5 text-blue-400" />
+              <div className="w-9 h-9 rounded-xl bg-slate-200/60 border border-slate-300 flex items-center justify-center shrink-0">
+                <FileSpreadsheet className="w-5 h-5 text-slate-500" />
               </div>
               <div className="min-w-0">
-                <h3 className="text-base font-bold text-white tracking-tight truncate">
+                <h3 className="text-base font-bold text-slate-900 tracking-tight truncate">
                   Quotation Cart (RFQ)
                 </h3>
-                <span className="text-xs text-slate-300 font-medium truncate block">
+                <span className="text-xs text-slate-500 font-medium truncate block">
                   {totalItems} item{totalItems === 1 ? "" : "s"} scheduled for formal pricing
                 </span>
               </div>
             </div>
             <button
               onClick={closeCart}
-              className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors shrink-0"
+              className="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-200/60 transition-colors shrink-0"
               aria-label="Close cart"
             >
               <X className="w-5 h-5" />

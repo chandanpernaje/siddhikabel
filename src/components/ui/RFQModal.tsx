@@ -179,10 +179,13 @@ export const RFQModal: React.FC<RFQModalProps> = ({
       />
 
       <div className="relative w-full max-w-2xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden z-10 flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200 text-slate-900">
+        {/* Subtle accent glow */}
+        <div aria-hidden="true" className="absolute top-0 right-0 w-96 h-96 rounded-full bg-slate-100 blur-3xl pointer-events-none" />
+
         {/* Header */}
-        <div className="px-6 py-5 border-b border-slate-200 flex items-center justify-between bg-slate-50 shrink-0">
+        <div className="px-6 py-5 border-b border-slate-200 flex items-center justify-between bg-slate-50 shrink-0 relative z-10">
           <div className="flex items-center gap-2.5">
-            <FileSpreadsheet className="w-5 h-5 text-blue-600" />
+            <FileSpreadsheet className="w-5 h-5 text-slate-500" />
             <div>
               <h3 className="text-base font-bold text-slate-900 tracking-tight">
                 Request Formal Quotation (RFQ)
@@ -194,43 +197,43 @@ export const RFQModal: React.FC<RFQModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-200 transition-colors"
+            className="p-1.5 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-200 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {isSuccess ? (
-          <div className="p-8 text-center space-y-4">
-            <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto">
+          <div className="p-8 text-center space-y-4 relative z-10">
+            <div className="w-14 h-14 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h4 className="text-lg font-bold text-slate-900">
               Quotation Request Received!
             </h4>
-            <div className="inline-block bg-blue-50 border border-blue-200 px-4 py-2 rounded-xl font-mono text-sm text-blue-700 font-bold">
+            <div className="inline-block bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-xl font-mono text-sm text-emerald-800 font-bold shadow-sm">
               Reference Quote #: {generatedQuoteNo}
             </div>
-            <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
+            <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed font-medium">
               We have received your quotation request. Our engineering sales desk will review your requirements and dispatch an official quotation to <span className="text-slate-900 font-bold">{email}</span>.
             </p>
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 onClick={handleViewQuotation}
-                className="w-full sm:w-auto px-6 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xs rounded-xl shadow-md shadow-blue-500/20 transition-all"
+                className="w-full sm:w-auto px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-md transition-all"
               >
                 Open Quotation Document &amp; Print PDF
               </button>
               <button
                 onClick={onClose}
-                className="w-full sm:w-auto px-5 py-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 font-semibold text-xs rounded-xl transition-colors"
+                className="w-full sm:w-auto px-5 py-2.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-bold text-xs rounded-xl transition-colors shadow-sm"
               >
                 Close Window
               </button>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 space-y-4 text-xs overflow-y-auto">
+          <form onSubmit={handleSubmit} className="p-6 space-y-4 text-xs overflow-y-auto relative z-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-slate-700 font-bold mb-1">
@@ -244,7 +247,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     placeholder="e.g. Apex Automation Pvt Ltd"
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:bg-white font-medium transition-colors"
                   />
                 </div>
               </div>
@@ -259,7 +262,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Purchasing / Project Engineer"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:bg-white font-medium transition-colors"
                 />
               </div>
 
@@ -275,7 +278,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="procurement@company.com"
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:bg-white font-medium transition-colors"
                   />
                 </div>
               </div>
@@ -292,7 +295,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 98765 43210"
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-mono font-bold"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:bg-white font-mono font-bold transition-colors"
                   />
                 </div>
               </div>
@@ -309,7 +312,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="Bangalore, Chennai, Hyderabad..."
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-medium"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:bg-white font-medium transition-colors"
                   />
                 </div>
               </div>
@@ -327,7 +330,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                   placeholder="e.g. 500"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-mono font-bold"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:bg-white font-mono font-bold transition-colors"
                 />
               </div>
               <div>
@@ -337,7 +340,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({
                 <select
                   value={unit}
                   onChange={(e) => setUnit(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:border-blue-500 font-semibold"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:border-slate-400 font-semibold transition-colors [&>option]:bg-white"
                 >
                   <option value="meters">Meters</option>
                   <option value="pieces">Pieces / Units</option>
@@ -356,7 +359,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Mention specific cable cores, cross section, coil lengths, or switchgear ratings..."
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 leading-relaxed font-medium"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:bg-white leading-relaxed font-medium transition-colors"
               />
             </div>
 
@@ -364,11 +367,11 @@ export const RFQModal: React.FC<RFQModalProps> = ({
             <div>
               <label className="block text-slate-700 font-bold mb-1 flex items-center justify-between">
                 <span>Attach BOM / Schedule (Excel, PDF, Drawing)</span>
-                <span className="text-[11px] text-slate-400 font-normal">Up to 25MB</span>
+                <span className="text-[11px] text-slate-500 font-normal">Up to 25MB</span>
               </label>
-              <label className="border border-dashed border-slate-300 hover:border-blue-500 bg-slate-50 hover:bg-blue-50/50 rounded-2xl p-4 flex flex-col items-center justify-center cursor-pointer transition-colors text-center">
-                <Upload className="w-5 h-5 text-blue-600 mb-1" />
-                <span className="text-slate-800 font-bold">Click to browse or drop Bill of Materials</span>
+              <label className="border border-dashed border-slate-300 hover:border-slate-400 bg-slate-50 hover:bg-slate-100 rounded-2xl p-4 flex flex-col items-center justify-center cursor-pointer transition-colors text-center">
+                <Upload className="w-5 h-5 text-slate-400 mb-1" />
+                <span className="text-slate-700 font-bold">Click to browse or drop Bill of Materials</span>
                 <span className="text-[11px] text-slate-500 font-medium">Supported: .xlsx, .csv, .pdf, .dwg, .jpg</span>
                 <input
                   type="file"
@@ -382,9 +385,9 @@ export const RFQModal: React.FC<RFQModalProps> = ({
                   {files.map((f, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] border border-slate-200 font-medium"
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 text-[11px] font-medium"
                     >
-                      <Paperclip className="w-3 h-3 text-blue-600" />
+                      <Paperclip className="w-3 h-3 text-slate-500" />
                       <span className="max-w-[150px] truncate">{f.name}</span>
                     </div>
                   ))}
@@ -396,7 +399,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md shadow-blue-500/20 transition-all disabled:opacity-50"
+                className="w-full py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-all disabled:opacity-50"
               >
                 {isSubmitting ? "Submitting Request..." : "Submit Quotation Request"}
               </button>

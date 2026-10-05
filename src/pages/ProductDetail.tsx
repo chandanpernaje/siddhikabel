@@ -82,6 +82,9 @@ export const ProductDetail: React.FC = () => {
   const [selectedCore, setSelectedCore] = useState('2 Core');
   const [selectedSize, setSelectedSize] = useState('0.5 Sqmm');
   const [selectedEarth, setSelectedEarth] = useState('Without (All Numbered - X)');
+  const [selectedColor, setSelectedColor] = useState('Black');
+
+  const isSingleCore = product.name.toLowerCase().includes("single core") || product.category === 'Single Core';
 
   React.useEffect(() => {
     if (product.id === "lapp-cat-1") {
@@ -157,12 +160,12 @@ export const ProductDetail: React.FC = () => {
 
   const calculatedPrice = useMemo(() => {
     if (!product.brand.includes("LAPP")) return product.price;
-    const coreNum = parseInt(selectedCore.split(' ')[0]) || 2;
+    const coreNum = isSingleCore ? 1 : (parseInt(selectedCore.split(' ')[0]) || 2);
     const sizeNum = parseFloat(selectedSize.split(' ')[0]) || 0.5;
     
     // Calculate a dynamic price based on the selected core and size
     // Using simple multipliers based on the base values (2 core, 0.5 sqmm)
-    const coreMultiplier = coreNum / 2;
+    const coreMultiplier = isSingleCore ? 1 : coreNum / 2;
     const sizeMultiplier = sizeNum / 0.5;
     
     // To ensure price doesn't go crazy high for 52 cores, we add a simple dampening formula
@@ -178,7 +181,9 @@ export const ProductDetail: React.FC = () => {
 
   const handleAddToCart = () => {
     const variantName = product.brand.includes("LAPP") 
-      ? `${product.name} (${selectedCore}, ${selectedSize}, ${selectedEarth === 'With (Yellow/Green - G)' ? 'With Earth' : 'Without Earth'})`
+      ? isSingleCore 
+        ? `${product.name} (${selectedSize}, ${selectedColor})`
+        : `${product.name} (${selectedCore}, ${selectedSize}, ${selectedEarth === 'With (Yellow/Green - G)' ? 'With Earth' : 'Without Earth'})`
       : product.name;
 
     addToCart({ ...product, name: variantName, price: calculatedPrice }, qty);
@@ -350,97 +355,99 @@ export const ProductDetail: React.FC = () => {
                 )}
               </div>
 
-              <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-snug mb-3">
+              <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-snug mb-6">
                 {product.name}
               </h1>
-
-              <p className="text-xs text-slate-600 leading-relaxed mb-6 font-medium">
-                {product.application}
-              </p>
-
-              {/* Bullet Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs mb-6">
-                {product.specs.map((spec, idx) => (
-                  <div key={idx} className="flex items-baseline gap-2 text-slate-700 font-medium">
-                    <span className="text-amber-500 text-xs font-mono font-bold">✓</span>
-                    <span>{spec}</span>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* LAPP Variant Layout - New Design */}
             {product.brand.includes("LAPP") && (
               <div className="border-[1.5px] border-[#00a7e1]/20 rounded-[24px] p-5 sm:p-6 bg-white mb-6 shadow-sm space-y-6">
                 
-                {/* Grid for Cores and Size side-by-side */}
-                <div className="grid grid-cols-2 gap-4">
-                  {/* 1. Core */}
-                  <div>
-                    <label htmlFor="core-select" className="font-bold text-slate-800 text-sm block mb-2">1. Core</label>
-                    <select
-                      id="core-select"
-                      value={selectedCore}
-                      onChange={(e) => setSelectedCore(e.target.value)}
-                      className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl border border-slate-300 bg-white text-slate-800 appearance-none cursor-pointer transition-all focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 hover:border-slate-400"
-                      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
-                    >
-                      {['2 Core', '3 Core', '4 Core', '5 Core', '6 Core', '7 Core', '8 Core', '10 Core', '12 Core', '14 Core', '15 Core', '16 Core', '18 Core', '20 Core', '21 Core', '25 Core', '30 Core', '32 Core', '34 Core', '35 Core', '36 Core', '40 Core', '41 Core', '50 Core', '52 Core'].map(core => (
-                        <option key={core} value={core}>{core}</option>
-                      ))}
-                    </select>
-                  </div>
+                {/* Grid for Variant Options */}
+                <div className="space-y-5">
+                  {!isSingleCore && (
+                    <div>
+                      <label className="font-bold text-slate-800 text-sm block mb-2">1. Core</label>
+                      <div className="flex flex-wrap gap-2">
+                        {['2 Core', '3 Core', '4 Core', '5 Core', '6 Core', '7 Core', '8 Core', '10 Core', '12 Core', '14 Core', '16 Core', '18 Core', '20 Core', '25 Core', '30 Core', '34 Core', '40 Core', '50 Core'].map(core => (
+                          <button
+                            key={core}
+                            onClick={() => setSelectedCore(core)}
+                            className={`px-3 py-1.5 text-xs font-bold rounded-lg border transition-colors ${selectedCore === core ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
+                          >
+                            {core}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-                  {/* 2. Size (Sqmm) */}
                   <div>
-                    <label htmlFor="size-select" className="font-bold text-slate-800 text-sm block mb-2">2. Size (Sqmm)</label>
-                    <select
-                      id="size-select"
-                      value={selectedSize}
-                      onChange={(e) => setSelectedSize(e.target.value)}
-                      className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl border border-slate-300 bg-white text-slate-800 appearance-none cursor-pointer transition-all focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 hover:border-slate-400"
-                      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
-                    >
+                    <label className="font-bold text-slate-800 text-sm block mb-2">{isSingleCore ? '1. Size (Sqmm)' : '2. Size (Sqmm)'}</label>
+                    <div className="flex flex-wrap gap-2">
                       {['0.5 Sqmm', '0.75 Sqmm', '1 Sqmm', '1.5 Sqmm', '2.5 Sqmm', '4 Sqmm', '6 Sqmm', '10 Sqmm', '16 Sqmm', '25 Sqmm', '35 Sqmm'].map(size => (
-                        <option key={size} value={size}>{size}</option>
+                        <button
+                          key={size}
+                          onClick={() => setSelectedSize(size)}
+                          className={`px-3 py-1.5 text-xs font-bold rounded-lg border transition-colors ${selectedSize === size ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
+                        >
+                          {size}
+                        </button>
                       ))}
-                    </select>
+                    </div>
                   </div>
-                </div>
 
-                {/* 3. Protective conductor */}
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-bold text-slate-800 text-sm leading-tight">3. Protective conductor (with/without Yellow/Green)</h3>
-                    <span className="text-orange-500 font-bold text-[13px]">
-                      {selectedEarth === 'Without (All Numbered - X)' ? 'Without Earth (X)' : 'With Earth (G)'}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-2.5">
-                    <button 
-                      onClick={() => setSelectedEarth('With (Yellow/Green - G)')}
-                      className={`flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-md border transition-colors ${
-                        selectedEarth === 'With (Yellow/Green - G)'
-                          ? 'border-red-500 text-red-600 bg-red-50/10'
-                          : 'border-slate-200 text-slate-700 hover:border-slate-300'
-                      }`}
-                    >
-                      <div className="w-3 h-3 rounded-full bg-gradient-to-br from-yellow-400 to-green-500 border border-slate-300" />
-                      With (Yellow/Green - G)
-                    </button>
-                    <button 
-                      onClick={() => setSelectedEarth('Without (All Numbered - X)')}
-                      className={`px-4 py-2 text-xs font-bold rounded-md border transition-colors ${
-                        selectedEarth === 'Without (All Numbered - X)'
-                          ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                          : 'border-slate-200 text-slate-700 hover:border-slate-300'
-                      }`}
-                    >
-                      Without (All Numbered - X)
-                    </button>
-                  </div>
+                  {isSingleCore ? (
+                    <div>
+                      <label className="font-bold text-slate-800 text-sm block mb-2">2. Color</label>
+                      <div className="flex flex-wrap gap-2">
+                        {['Black', 'Red', 'Blue', 'Yellow', 'Green', 'Grey', 'Brown', 'White'].map(color => (
+                          <button
+                            key={color}
+                            onClick={() => setSelectedColor(color)}
+                            className={`px-3 py-1.5 text-xs font-bold rounded-lg border transition-colors ${selectedColor === color ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
+                          >
+                            {color}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <label className="font-bold text-slate-800 text-sm leading-tight">3. Protective conductor</label>
+                        <span className="text-amber-600 font-bold text-[11px]">
+                          {selectedEarth === 'Without (All Numbered - X)' ? 'Without Earth (X)' : 'With Earth (G)'}
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-2.5">
+                        <button 
+                          onClick={() => setSelectedEarth('With (Yellow/Green - G)')}
+                          className={`flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-lg border transition-colors ${
+                            selectedEarth === 'With (Yellow/Green - G)'
+                              ? 'border-emerald-500 text-emerald-700 bg-emerald-50 shadow-sm'
+                              : 'bg-white border-slate-200 text-slate-700 hover:border-emerald-400 hover:bg-emerald-50/50'
+                          }`}
+                        >
+                          <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-yellow-400 to-green-500 shadow-xs" />
+                          With (Yellow/Green - G)
+                        </button>
+                        <button 
+                          onClick={() => setSelectedEarth('Without (All Numbered - X)')}
+                          className={`flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-lg border transition-colors ${
+                            selectedEarth === 'Without (All Numbered - X)'
+                              ? 'bg-slate-800 text-white border-slate-900 shadow-sm'
+                              : 'bg-white border-slate-200 text-slate-700 hover:border-slate-400 hover:bg-slate-50'
+                          }`}
+                        >
+                          <div className="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-300" />
+                          Without (All Numbered - X)
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
-
               </div>
             )}
 
@@ -551,54 +558,82 @@ export const ProductDetail: React.FC = () => {
           </div>
         </div>
 
-        {/* Technical Data Sheet Spec Matrix */}
-        <div className="rounded-3xl bg-white border border-slate-200 p-8 space-y-6 shadow-sm">
-          <h3 className="text-lg font-black text-slate-900 tracking-tight flex items-center gap-2">
-            <FileText className="w-5 h-5 text-amber-500" />
-            <span>Technical Datasheet &amp; Electrical Standards</span>
-          </h3>
+        {/* Bottom Section: Description vs Technical Data */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-6 space-y-6">
+            <div className="rounded-3xl bg-white border border-slate-200 p-8 shadow-sm h-full">
+              <h3 className="text-lg font-black text-slate-900 tracking-tight mb-6 flex items-center gap-2">
+                <FileText className="w-5 h-5 text-amber-500" />
+                Product Description & Highlights
+              </h3>
+              
+              <p className="text-sm text-slate-600 leading-relaxed mb-8 font-medium">
+                {product.application}
+              </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs">
-            <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
-              <span className="text-slate-400 font-mono block">Conductor Design</span>
-              <span className="text-slate-900 font-bold text-sm">
-                {product.conductor || "Fine-wire bare copper, Class 5 to IEC 60228"}
-              </span>
+              <div className="space-y-4">
+                {product.specs.map((spec, idx) => (
+                  <div key={idx} className="flex items-start gap-3 text-slate-700 font-medium text-sm">
+                    <div className="w-5 h-5 shrink-0 rounded-full bg-amber-100 flex items-center justify-center mt-0.5 border border-amber-200">
+                      <Check className="w-3 h-3 text-amber-600" />
+                    </div>
+                    <span className="leading-relaxed">{spec}</span>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
 
-            <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
-              <span className="text-slate-400 font-mono block">Nominal Voltage U0/U</span>
-              <span className="text-slate-900 font-bold text-sm">
-                {product.voltage || "300 / 500 V"}
-              </span>
-            </div>
+          <div className="lg:col-span-6">
+            <div className="rounded-3xl bg-white border border-slate-200 p-8 space-y-6 shadow-sm h-full">
+              <h3 className="text-lg font-black text-slate-900 tracking-tight flex items-center gap-2">
+                <FileText className="w-5 h-5 text-amber-500" />
+                <span>Technical Datasheet</span>
+              </h3>
 
-            <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
-              <span className="text-slate-400 font-mono block">Operating Temperature</span>
-              <span className="text-slate-900 font-bold text-sm">
-                {product.tempRange || "-40°C to +80°C (Fixed)"}
-              </span>
-            </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
+                  <span className="text-slate-400 font-mono block">Conductor Design</span>
+                  <span className="text-slate-900 font-bold text-sm">
+                    {product.conductor || "Fine-wire bare copper, Class 5"}
+                  </span>
+                </div>
 
-            <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
-              <span className="text-slate-400 font-mono block">Minimum Bending Radius</span>
-              <span className="text-slate-900 font-bold text-sm">
-                Occasional flexing: 10 x OD / Fixed: 4 x OD
-              </span>
-            </div>
+                <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
+                  <span className="text-slate-400 font-mono block">Nominal Voltage</span>
+                  <span className="text-slate-900 font-bold text-sm">
+                    {product.voltage || "300 / 500 V"}
+                  </span>
+                </div>
 
-            <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
-              <span className="text-slate-400 font-mono block">Flame Retardancy</span>
-              <span className="text-slate-900 font-bold text-sm">
-                IEC 60332-1-2 / VDE 0482-332-1-2
-              </span>
-            </div>
+                <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
+                  <span className="text-slate-400 font-mono block">Operating Temp</span>
+                  <span className="text-slate-900 font-bold text-sm">
+                    {product.tempRange || "-40°C to +80°C"}
+                  </span>
+                </div>
 
-            <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
-              <span className="text-slate-400 font-mono block">Chemical &amp; Oil Resistance</span>
-              <span className="text-slate-900 font-bold text-sm">
-                DIN EN 50290-2-22 (TM54)
-              </span>
+                <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
+                  <span className="text-slate-400 font-mono block">Bending Radius</span>
+                  <span className="text-slate-900 font-bold text-sm">
+                    Flexing: 10x OD
+                  </span>
+                </div>
+
+                <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
+                  <span className="text-slate-400 font-mono block">Flame Retardancy</span>
+                  <span className="text-slate-900 font-bold text-sm">
+                    IEC 60332-1-2
+                  </span>
+                </div>
+
+                <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-1">
+                  <span className="text-slate-400 font-mono block">Oil Resistance</span>
+                  <span className="text-slate-900 font-bold text-sm">
+                    DIN EN 50290-2-22
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

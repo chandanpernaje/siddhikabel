@@ -70,7 +70,7 @@ export const AboutLapp: React.FC = () => {
       <div className="max-w-7xl mx-auto w-full space-y-8">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-slate-500">
-          <Link to="/" className="hover:text-amber-600 transition-colors font-medium">
+          <Link to="/" className="hover:text-blue-600 transition-colors font-medium">
             Home
           </Link>
           <span>/</span>
@@ -78,7 +78,7 @@ export const AboutLapp: React.FC = () => {
         </div>
 
         {/* Hero Card */}
-        <div className="rounded-2xl bg-white border border-slate-200/80 p-6 sm:p-10 relative overflow-hidden shadow-xs">
+        <div className="rounded-2xl bg-gradient-to-br from-blue-50 via-white to-blue-50/30 border-blue-200/60 shadow-blue-500/10 p-6 sm:p-10 relative overflow-hidden shadow-xs">
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
             <div className="space-y-4 max-w-4xl">
               <div className="flex items-center gap-3">
@@ -103,16 +103,16 @@ export const AboutLapp: React.FC = () => {
             </div>
 
             <div className="shrink-0">
-              <span className="inline-block px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-800 font-bold text-[11px] tracking-wide uppercase shadow-2xs">
+              <span className="inline-block px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-300 text-blue-800 font-bold text-[11px] tracking-wide uppercase shadow-2xs">
                 AUTHORISED CHANNEL PARTNER
               </span>
             </div>
           </div>
 
           {/* 4 Stat Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 pt-6 border-t border-blue-100">
             <div className="rounded-xl bg-slate-50 border border-slate-200/80 p-4">
-              <div className="text-xl font-black text-amber-600 font-mono">40,000+</div>
+              <div className="text-xl font-black text-blue-600 font-mono">40,000+</div>
               <div className="text-xs font-medium text-slate-600 mt-0.5">Standard Catalogue SKUs</div>
             </div>
             <div className="rounded-xl bg-slate-50 border border-slate-200/80 p-4">
@@ -120,7 +120,7 @@ export const AboutLapp: React.FC = () => {
               <div className="text-xs font-medium text-slate-600 mt-0.5">Global Engineering Origin</div>
             </div>
             <div className="rounded-xl bg-slate-50 border border-slate-200/80 p-4">
-              <div className="text-xl font-black text-amber-600 font-mono">Bangalore Hub</div>
+              <div className="text-xl font-black text-blue-600 font-mono">Bangalore Hub</div>
               <div className="text-xs font-medium text-slate-600 mt-0.5">Stock &amp; Immediate Dispatch</div>
             </div>
             <div className="rounded-xl bg-slate-50 border border-slate-200/80 p-4">
@@ -136,61 +136,53 @@ export const AboutLapp: React.FC = () => {
             LAPP Brand Portfolio &amp; Product Families
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {productFamilies.map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow group"
-              >
-                {/* Card Image Header */}
-                <div className="aspect-[16/9] bg-slate-50 border-b border-slate-100 overflow-hidden flex items-center justify-center p-3">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-full object-cover rounded-lg group-hover:scale-102 transition-transform duration-300"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.onerror = null;
-                      target.src = "/images/card-olflex.jpg";
-                    }}
-                  />
-                </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+            {productFamilies.map((item, idx) => {
+              const cardContent = (
+                <>
+                  <div className="relative aspect-[4/3] bg-gradient-to-b from-orange-100/50 via-orange-50/40 to-white flex items-center justify-center p-2 sm:p-4 overflow-hidden border-b border-orange-200/50">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-contain p-1 sm:p-2 group-hover:scale-108 transition-transform duration-500 ease-out drop-shadow-sm"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = "/images/card-olflex.jpg";
+                      }}
+                    />
+                  </div>
 
-                {/* Body Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase font-mono text-amber-600 block mb-1">
-                      {item.brand}
-                    </span>
-                    <h3 className="text-base font-bold text-slate-900 mb-2">
+                  <div className="flex flex-col flex-1 p-3 sm:p-4 items-center text-center justify-center space-y-2">
+                    <div>
+                      <span className="px-2.5 py-1 rounded-lg border text-[10px] sm:text-[11px] tracking-wider uppercase font-bold bg-orange-100/90 text-orange-900 border-orange-300">
+                        {item.brand}
+                      </span>
+                    </div>
+                    
+                    <h4 className="text-[12px] sm:text-sm font-bold text-slate-900 group-hover:text-orange-700 transition-colors line-clamp-2 leading-snug">
                       {item.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                      {item.desc}
-                    </p>
+                    </h4>
                   </div>
+                </>
+              );
 
-                  {/* Action Button */}
-                  <div className="pt-5 mt-4">
-                    {idx === 0 || item.isOlflex ? (
-                      <Link
-                        to="/olflex-cables"
-                        className="w-full py-2.5 px-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-xs"
-                      >
-                        <span>VIEW PRODUCTS →</span>
-                      </Link>
-                    ) : (
-                      <button
-                        onClick={() => setRfqTopic(item.topic || `Quote for ${item.brand} ${item.title}`)}
-                        className="w-full py-2.5 px-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors flex items-center justify-center shadow-xs"
-                      >
-                        REQUEST QUOTE
-                      </button>
-                    )}
-                  </div>
+              const cardClasses = "group relative flex flex-col rounded-3xl h-full bg-gradient-to-b from-orange-500/10 via-orange-50/70 to-white border border-orange-200/90 border-t-4 border-t-orange-500 hover:border-orange-400 transition-all duration-300 hover:-translate-y-1.5 shadow-sm hover:shadow-xl hover:shadow-orange-500/20 overflow-hidden cursor-pointer block";
+
+              if (idx === 0 || item.isOlflex) {
+                return (
+                  <Link key={idx} to="/olflex-cables" className={cardClasses}>
+                    {cardContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <div key={idx} onClick={() => setRfqTopic(item.topic || `Quote for ${item.brand} ${item.title}`)} className={cardClasses}>
+                  {cardContent}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
