@@ -150,7 +150,7 @@ export const Home: React.FC = () => {
       img: "/images/promo-lapp.jpg",
       badge: "VDE REG. NO. 7030",
       ctaText: "Open ÖLFLEX® Center",
-      ctaLink: "/about-lapp",
+      ctaLink: "/olflex-cables",
       productSampleId: "lapp-01",
       bgClass: "bg-gradient-to-r from-orange-100 via-orange-50 to-white border-orange-200",
       pillClass: "bg-orange-200 text-orange-800 border-orange-300",
@@ -604,31 +604,34 @@ export const Home: React.FC = () => {
             return (
               <div id={`brand-section-${brand.id}`} key={brand.id} className="space-y-4 lg:space-y-5 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 {/* Brand Header */}
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b-2 border-slate-200 pb-4">
-                  <div className="flex items-center gap-4 sm:gap-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-slate-200 pb-4">
+                  {/* Left Side: Text */}
+                  <div className="space-y-1 flex-1">
+                    <Link to={brandLink} onClick={() => window.scrollTo(0,0)} className="hover:opacity-80 transition-opacity">
+                      <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                        {brand.name.split(" ")[0]} <span className={bStyle.text}>Products</span>
+                      </h3>
+                    </Link>
+                    <p className="hidden sm:block text-sm text-slate-500 font-medium max-w-xl line-clamp-1">{brand.description}</p>
+                  </div>
+                  
+                  {/* Right Side: Logo & Button */}
+                  <div className="flex items-center gap-4 shrink-0 justify-between sm:justify-end w-full sm:w-auto">
                     <Link to={brandLink} onClick={() => window.scrollTo(0,0)} className="bg-white p-2.5 rounded-2xl border border-slate-200 shadow-sm h-14 sm:h-16 w-32 sm:w-40 flex items-center justify-center shrink-0 hover:border-blue-400 hover:shadow-md transition-all">
                       <img src={brand.logo} alt={brand.name} className="max-h-8 sm:max-h-10 w-auto object-contain" />
                     </Link>
-                    <div className="space-y-1">
-                      <Link to={brandLink} onClick={() => window.scrollTo(0,0)} className="hover:opacity-80 transition-opacity">
-                        <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                          {brand.name.split(" ")[0]} <span className={bStyle.text}>Products</span>
-                        </h3>
+                    
+                    {brandProducts.length > 6 && (
+                      <Link
+                        to={brandLink}
+                        onClick={() => window.scrollTo(0,0)}
+                        className={`hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white ${bStyle.bg} ${bStyle.hover} transition-all hover:scale-105 shadow-md shrink-0`}
+                      >
+                        View More
+                        <ArrowRight className="w-4 h-4" />
                       </Link>
-                      <p className="hidden sm:block text-sm text-slate-500 font-medium max-w-xl line-clamp-1">{brand.description}</p>
-                    </div>
+                    )}
                   </div>
-                  
-                  {brandProducts.length > 6 && (
-                    <Link
-                      to={brandLink}
-                      onClick={() => window.scrollTo(0,0)}
-                      className={`hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white ${bStyle.bg} ${bStyle.hover} transition-all hover:scale-105 shadow-md shrink-0`}
-                    >
-                      View More
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  )}
                 </div>
 
                 {/* 6 Products Grid */}
