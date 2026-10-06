@@ -143,8 +143,8 @@ export const Home: React.FC = () => {
       brand: "LAPP KABEL STUTTGART",
       origin: "Germany",
       logo: "/images/logo-lapp.png",
-      tagline: "World's First Flexible Control Cable",
-      headline: "ÖLFLEX® CLASSIC 110 Ready Stock",
+      tagline: "World's First Flexible Control Cable | Ready Stock",
+      headline: "ÖLFLEX® CLASSIC 110",
       description:
         "High flexibility, flame retardant to IEC 60332-1, and certified oil resistance. Available in over 100 core and cross-section combinations directly from Bangalore warehouse.",
       img: "/images/promo-lapp.jpg",
@@ -170,8 +170,8 @@ export const Home: React.FC = () => {
       brand: "EATON - MOELLER",
       origin: "Germany / USA",
       logo: "/images/logo-eaton.png",
-      tagline: "Intelligent Motor Protection & Switchgear",
-      headline: "PKZM0 Breakers & DILM Contactors",
+      tagline: "Motor Protection Breakers & Contactors",
+      headline: "PKZM0 & DILM Series",
       description:
         "Switching capacity up to 150 kA, differential phase-failure sensitivity, and electronic wide-range coil technology for modern automated industrial panels.",
       img: "/images/promo-eaton.jpg",
@@ -198,7 +198,7 @@ export const Home: React.FC = () => {
       origin: "Germany",
       logo: "/images/logo-mennekes.png",
       tagline: "Industrial CEE Pin & Sleeve Standards",
-      headline: "Watertight IP44 & IP67 Plugs & Sockets",
+      headline: "IP44 & IP67 Plugs & Sockets",
       description:
         "Manufactured using robust Polyamide 6 material and premium nickel-plated contacts for ultimate durability. We offer exclusive factory box rates tailored for machine builders and large-scale industrial projects.",
       img: "/images/promo-mennekes.jpg",
@@ -225,7 +225,7 @@ export const Home: React.FC = () => {
       origin: "Sweden",
       logo: "/images/logo-partex.png",
       tagline: "Swedish Precision Wire Identification",
-      headline: "PA Chevron Markers & ProMark T-1000",
+      headline: "PA Markers & ProMark Series",
       description:
         "Interlocking chevron cut guarantees alignment. Self-extinguishing UL94-V0 PVC and high-speed portable thermal printers for control panel builders and switchboard makers.",
       img: "/images/promo-partex.jpg",
@@ -252,7 +252,7 @@ export const Home: React.FC = () => {
       origin: "India",
       logo: "/images/logo-lapp.png",
       tagline: "🔥 Clearance Sale — Limited Time Only!",
-      headline: "Clearance Sale at more than 50% discount",
+      headline: "Clearance Sale - 50% OFF",
       description:
         "This would be limited time sale. Act quickly! Massive clearance on genuine LAPP products. Direct factory warranty, full GST ITC eligible. Stock is limited, first come first served.",
       img: "/images/slider5.jpg",
