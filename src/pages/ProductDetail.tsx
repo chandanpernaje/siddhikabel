@@ -216,7 +216,7 @@ export const ProductDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 text-slate-900">
-      <div className="max-w-7xl mx-auto w-full space-y-8">
+      <div className="w-[95%] max-w-[1920px] mx-auto space-y-8">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-slate-500">
           <Link to="/" className="hover:text-amber-600 transition-colors font-medium">

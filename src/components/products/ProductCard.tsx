@@ -8,11 +8,13 @@ interface ProductCardProps {
   product: Product;
   onQuickView: (product: Product) => void;
   onDirectQuote?: (product: Product) => void;
+  customLink?: string;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   onQuickView,
+  customLink,
 }) => {
   const { addToCart, cart } = useCart();
   const navigate = useNavigate();
@@ -105,7 +107,21 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       {/* Product Image Slot with tinted brand background */}
       <div className={`relative aspect-[4/3] ${style.imageBg} flex items-center justify-center p-2 sm:p-4 overflow-hidden border-b border-slate-200/70`}>
         {product.image ? (
-          isLappCategory ? (
+          customLink ? (
+            <Link to={customLink} className="w-full h-full block">
+              <img
+                src={product.image}
+                alt={product.name}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-contain p-1 sm:p-2 group-hover:scale-108 transition-transform duration-500 ease-out drop-shadow-sm"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "/images/card-olflex.jpg";
+                }}
+              />
+            </Link>
+          ) : isLappCat1 ? (
             <Link to="/olflex-cables" className="w-full h-full block">
               <img
                 src={product.image}
@@ -152,7 +168,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         {/* Product Title */}
-        {isLappCategory ? (
+        {customLink ? (
+          <Link
+            to={customLink}
+            className={`text-[12px] sm:text-sm font-bold text-slate-900 ${style.titleHover} transition-colors line-clamp-2 leading-snug`}
+          >
+            {product.name}
+          </Link>
+        ) : isLappCat1 ? (
           <Link
             to="/olflex-cables"
             className={`text-[12px] sm:text-sm font-bold text-slate-900 ${style.titleHover} transition-colors line-clamp-2 leading-snug`}

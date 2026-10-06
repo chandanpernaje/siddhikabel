@@ -11,36 +11,42 @@ export const AboutEaton: React.FC = () => {
 
   const productRanges = [
     {
+      id: "eaton-01",
       title: "PKZM0 Motor-Protective Circuit-Breakers",
       desc: "Rotary switch motor protection with overload and short-circuit protection up to 150 kA. Phase failure sensitive.",
       img: "/images/eaton-pkzm0.jpg",
       topic: "EATON PKZM0 MOTOR BREAKERS",
     },
     {
+      id: "eaton-02",
       title: "DILM Power Contactors (7A to 1600A)",
       desc: "Robust 3-pole and 4-pole contactors with electronic coils, low holding power, and SmartWire-DT connectivity.",
       img: "/images/eaton-dilm.jpg",
       topic: "EATON DILM CONTACTORS",
     },
     {
+      id: "eaton-03",
       title: "NZM Compact Molded Case Circuit Breakers",
       desc: "4 frame sizes from 20A to 1600A with electronic trip units, onboard energy metering, and USB diagnostic access.",
       img: "/images/eaton-nzm.jpg",
       topic: "EATON NZM MCCB",
     },
     {
+      id: "eaton-04",
       title: "FAZ DIN-Rail Miniature Circuit Breakers",
       desc: "High performance 10kA and 15kA breaking capacity MCBs with dual-purpose terminals and captive screws.",
       img: "/images/eaton-faz.jpg",
       topic: "EATON FAZ MCB",
     },
     {
+      id: "eaton-05",
       title: "RMQ-Titan 22mm Pilot Devices & Pushbuttons",
       desc: "IP67/IP69K operator controls with laser inscription, customizable LED illumination, and ergonomic actuation.",
       img: "/images/eaton-rmq.jpg",
       topic: "EATON RMQ-TITAN PUSHBUTTONS",
     },
     {
+      id: "eaton-06",
       title: "PowerXL Variable Frequency Drives",
       desc: "Compact VFDs and soft starters for energy-efficient motor control and pump applications in harsh environments.",
       img: "/images/eaton-drives.jpg",
@@ -50,7 +56,7 @@ export const AboutEaton: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 text-slate-900">
-      <div className="max-w-7xl mx-auto w-full space-y-10">
+      <div className="w-[95%] max-w-[1920px] mx-auto space-y-10">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-slate-500">
           <Link to="/" className="hover:text-blue-600 transition-colors font-medium">

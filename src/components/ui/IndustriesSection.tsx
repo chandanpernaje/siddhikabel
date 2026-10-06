@@ -58,7 +58,7 @@ export const IndustriesSection: React.FC = () => {
 
   return (
     <section id="industries" className="w-full scroll-mt-24 py-16 lg:py-24 bg-slate-50 border-y border-slate-200">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <div className="w-[95%] max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">

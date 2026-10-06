@@ -140,7 +140,7 @@ export const Header: React.FC = () => {
         {/* Bottom glowing multi-color brand accent line */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-zinc-500 via-red-500 to-zinc-400 pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+        <div className="w-[95%] max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
           {/* Zone 1: Official Siddhi Kabel Logo Lockup */}
           <Link
             to="/"

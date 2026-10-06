@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
     <footer id="contact" className="bg-sky-50 border-t border-sky-100 text-slate-600 text-xs">
 
       {/* Main Footer Links */}
-      <div className="max-w-7xl mx-auto w-full py-14 px-4 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="w-[95%] max-w-[1920px] mx-auto py-14 px-4 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
         {/* Col 1: Identity */}
         <div className="lg:col-span-2 space-y-4">
           <Link to="/" className="inline-block">
@@ -143,7 +143,7 @@ export const Footer: React.FC = () => {
 
       {/* Bottom Legal bar */}
       <div className="border-t border-sky-100 bg-sky-100/50 py-6 px-4 lg:px-8">
-        <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+        <div className="w-[95%] max-w-[1920px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
           <div>
             &copy; {new Date().getFullYear()} Siddhi Kabel Corporation. All Rights Reserved. ÖLFLEX®, UNITRONIC®, SKINTOP® are registered trademarks of LAPP Group.
           </div>

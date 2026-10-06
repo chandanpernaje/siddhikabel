@@ -19,35 +19,35 @@ export const AboutLapp: React.FC = () => {
       title: "Data Communication Cables",
       desc: "Screened data transmission cables with high EMC protection for sensors, instrumentation, RS485 serial communication, and industrial automation.",
       img: "/images/card-unitronic.jpg",
-      topic: "Quote for UNITRONIC Cables",
+      link: "/olflex-cables?group=unitronic",
     },
     {
       brand: "SKINTOP®",
       title: "Cable Glands & Accessories",
       desc: "Polyamide, nickel-plated brass, and stainless steel IP68/IP69K cable glands with integrated strain relief and vibration protection. Metric & PG threads.",
       img: "/images/card-skintop.jpg",
-      topic: "Quote for SKINTOP Cable Glands",
+      link: "/olflex-cables?group=skintop",
     },
     {
       brand: "UNIPLUS®",
       title: "Cabinet Single Cores",
       desc: "Flexible single-core wires for control cabinets, panels, and internal machine wiring.",
       img: "/images/card-uniplus.jpg",
-      topic: "Quote for UNIPLUS Single Cores",
+      link: "/olflex-cables?group=uniplus",
     },
     {
       brand: "SILVYN®",
       title: "Rill, Conduit & Klick",
       desc: "Corrugated flexible conduits and connectors for mechanical and environmental protection.",
       img: "/images/card-conduit.jpg",
-      topic: "Quote for SILVYN Conduits",
+      link: "/olflex-cables?group=silvyn",
     },
     {
       brand: "LAPP INFRA",
       title: "Domestic / House Wiring",
       desc: "Flame-retardant FR-LSH building wires for residential and commercial installations.",
       img: "/images/card-infra.jpg",
-      topic: "Quote for LAPP INFRA Building Wires",
+      link: "/olflex-cables?group=infra",
     },
     {
       brand: "ÖLFLEX® SERVO",
@@ -67,7 +67,7 @@ export const AboutLapp: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-100/80 py-8 px-4 sm:px-6 lg:px-8 text-slate-900">
-      <div className="max-w-7xl mx-auto w-full space-y-8">
+      <div className="w-[95%] max-w-[1920px] mx-auto space-y-8">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-slate-500">
           <Link to="/" className="hover:text-blue-600 transition-colors font-medium">
@@ -169,9 +169,9 @@ export const AboutLapp: React.FC = () => {
 
               const cardClasses = "group relative flex flex-col rounded-3xl h-full bg-gradient-to-b from-orange-500/10 via-orange-50/70 to-white border border-orange-200/90 border-t-4 border-t-orange-500 hover:border-orange-400 transition-all duration-300 hover:-translate-y-1.5 shadow-sm hover:shadow-xl hover:shadow-orange-500/20 overflow-hidden cursor-pointer block";
 
-              if (idx === 0 || item.isOlflex) {
+              if (item.link) {
                 return (
-                  <Link key={idx} to="/olflex-cables" className={cardClasses}>
+                  <Link key={idx} to={item.link} className={cardClasses}>
                     {cardContent}
                   </Link>
                 );

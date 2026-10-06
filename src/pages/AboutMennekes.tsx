@@ -11,36 +11,42 @@ export const AboutMennekes: React.FC = () => {
 
   const productRanges = [
     {
+      id: "menn-01",
       title: "PowerTOP® Xtra CEE Plugs & Connectors",
       desc: "Ergonomic rubberized grip with rotating cable gland, nickel-plated contacts, and IP54 to IP67 protection.",
       img: "/images/menn-powertop.jpg",
       topic: "MENNEKES POWERTOP XTRA",
     },
     {
+      id: "menn-02",
       title: "Panel Mounted Sockets (Straight & Angled)",
       desc: "Robust 16A, 32A, 63A, and 125A receptacles with high heat resistant contact carrier and screwless twin contact technology.",
       img: "/images/menn-panel.jpg",
       topic: "MENNEKES PANEL SOCKETS",
     },
     {
+      id: "menn-03",
       title: "AMAXX® Receptacle Combination Enclosures",
       desc: "Custom combinable distribution units in AMAPLAST housing with integrated DIN-rail MCBs, RCDs, and CEE outlets.",
       img: "/images/menn-amaxx.jpg",
       topic: "MENNEKES AMAXX COMBINATIONS",
     },
     {
+      id: "menn-04",
       title: "DUO Interlocked Switched Sockets",
       desc: "Mechanical interlock prevents insertion or withdrawal of plugs under live electrical load. IP67 watertight.",
       img: "/images/menn-duo.jpg",
       topic: "MENNEKES DUO SWITCHED SOCKETS",
     },
     {
+      id: "menn-05",
       title: "EverGUM® Solid Rubber Enclosures",
       desc: "Unbreakable vulcanized rubber distribution boxes designed for brutal mechanical abuse on shipyards and construction sites.",
       img: "/images/menn-evergum.jpg",
       topic: "MENNEKES EVERGUM ENCLOSURES",
     },
     {
+      id: "menn-06",
       title: "Phase Inverters & Motor Sockets",
       desc: "Enables fast 180° rotation of two phase pins to reverse 3-phase motor direction without rewiring connections.",
       img: "/images/menn-phase.jpg",
@@ -50,7 +56,7 @@ export const AboutMennekes: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 text-slate-900">
-      <div className="max-w-7xl mx-auto w-full space-y-10">
+      <div className="w-[95%] max-w-[1920px] mx-auto space-y-10">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-slate-500">
           <Link to="/" className="hover:text-rose-600 transition-colors font-medium">

@@ -429,7 +429,7 @@ export const Home: React.FC = () => {
       {/* HERO BANNER CAROUSEL SLIDER                               */}
       {/* ======================================================== */}
       <section className="w-full text-slate-900 bg-white border-b border-slate-200 shadow-sm relative overflow-hidden">
-        <div className="w-full relative max-w-7xl mx-auto">
+        <div className="w-full relative w-[95%] max-w-[1920px] mx-auto">
           <div className="relative" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
             {slides.map((slide, idx) => {
               const isActive = idx === currentSlide;
@@ -583,7 +583,7 @@ export const Home: React.FC = () => {
       {/* 1. AUTHORIZED BRAND PORTFOLIOS: CONTINUOUS CATALOG */}
       {/* ======================================================== */}
       <section id="brand-portfolios" className="w-full scroll-mt-24 pt-12 lg:pt-16 pb-12 lg:pb-16 bg-slate-50 border-y border-slate-200 text-slate-900 shadow-sm">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-10 lg:space-y-12">
+        <div className="w-[95%] max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 lg:space-y-12">
 {BRANDS.map((brand: any) => {
             const brandProducts = PRODUCTS_DATA.filter((p) => p.brand.toLowerCase().includes(brand.id));
             const displayProducts = brandProducts.slice(0, 6);
@@ -640,6 +640,15 @@ export const Home: React.FC = () => {
                     <ProductCard
                       key={product.id}
                       product={product}
+                      customLink={
+                        product.id === "lapp-cat-1" ? "/olflex-cables" :
+                        product.id === "lapp-cat-2" ? "/olflex-cables?group=unitronic" :
+                        product.id === "lapp-cat-3" ? "/olflex-cables?group=uniplus" :
+                        product.id === "lapp-cat-4" ? "/olflex-cables?group=skintop" :
+                        product.id === "lapp-cat-5" ? "/olflex-cables?group=silvyn" :
+                        product.id === "lapp-cat-6" ? "/olflex-cables?group=infra" :
+                        brand.path
+                      }
                       onQuickView={(p) => setQuickViewProduct(p)}
                       onDirectQuote={(p) => { setRfqProductName(`${p.name} (${p.partNo})`); setRfqProductPrice(p.price); setRfqModalOpen(true); }}
                     />
@@ -670,7 +679,7 @@ export const Home: React.FC = () => {
       {/* 7. ABOUT COMPANY SECTION                                 */}
       {/* ======================================================== */}
       <section id="about" className="w-full scroll-mt-24 pt-8 lg:pt-12 pb-12 lg:pb-16 bg-white border-b border-slate-200 text-slate-900 shadow-sm">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="w-[95%] max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Text Content */}
             <div className="space-y-4">
@@ -789,7 +798,7 @@ export const Home: React.FC = () => {
       {/* 5. RFQ & BULK QUOTATION FORM: CLEAN WHITE PANEL          */}
       {/* ======================================================== */}
       <section id="rfq" className="w-full bg-white scroll-mt-24 pt-6 lg:pt-8 pb-6 lg:pb-8 text-slate-900 relative">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-[95%] max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="rounded-3xl bg-white border border-slate-200 shadow-xl p-6 sm:p-10 lg:p-12 relative overflow-hidden">
           {/* Subtle blue background glow */}
           <div aria-hidden="true" className="absolute top-0 right-0 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl pointer-events-none" />

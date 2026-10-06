@@ -3,8 +3,8 @@ import { Phone, Mail, Facebook, Twitter, Linkedin } from "lucide-react";
 
 export const TopBar: React.FC = () => {
   return (
-    <div className="bg-zinc-600 border-b border-zinc-700 text-xs text-zinc-200 py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-4">
+    <div className="bg-zinc-600 border-b border-zinc-700 text-xs text-zinc-200 py-2 sm:py-2.5">
+      <div className="w-[95%] max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         {/* Left Side: Social Icons */}
         <div className="flex items-center gap-4">
           <a href="https://www.facebook.com/siddhikabel/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Facebook">

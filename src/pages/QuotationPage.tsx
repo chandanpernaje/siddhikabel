@@ -159,7 +159,7 @@ export const QuotationPage: React.FC = () => {
         <div className="absolute -bottom-32 right-10 w-[500px] h-[500px] rounded-full bg-emerald-500/15 blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full space-y-8">
+      <div className="relative z-10 w-[95%] max-w-[1920px] mx-auto space-y-8">
         {/* Breadcrumb & Navigation */}
         <div className="no-print flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-xs text-slate-400">

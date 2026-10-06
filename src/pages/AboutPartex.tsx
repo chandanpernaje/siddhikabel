@@ -11,36 +11,42 @@ export const AboutPartex: React.FC = () => {
 
   const productRanges = [
     {
+      id: "partex-01",
       title: "PA Closed Chevron Wire Markers",
       desc: "Interlocking chevron cut ensures markers stay firmly locked and aligned in line. Self-extinguishing PVC to UL94-V0.",
       img: "/images/partex-pa.jpg",
       topic: "PARTEX PA CHEVRON WIRE MARKERS",
     },
     {
+      id: "partex-02",
       title: "ProMark T-1000 Thermal Transfer Printer",
       desc: "Compact high-speed marking printer for profiles, heat shrink tubing, and continuous label tapes. 40mm/sec.",
       img: "/images/partex-promark.jpg",
       topic: "PARTEX PROMARK T-1000 PRINTER KIT",
     },
     {
+      id: "partex-03",
       title: "PO & POZ Oval Marker Sleeves",
       desc: "Flexible oval profile designed to conform smoothly over individual wire cores. Halogen-free ZEROHEX version available.",
       img: "/images/partex-po.jpg",
       topic: "PARTEX PO SLEEVES",
     },
     {
+      id: "partex-04",
       title: "PC Open-End Snap-On Wire Markers",
       desc: "Fast clip-on installation onto terminated wires and cables without disconnecting the terminal connections.",
       img: "/images/partex-pc.jpg",
       topic: "PARTEX PC SNAP-ON MARKERS",
     },
     {
+      id: "partex-05",
       title: "PKS Stainless Steel Embossed Markers",
       desc: "Acid-proof AISI 316 stainless steel cable identification tags for aggressive offshore, chemical, and nuclear environments.",
       img: "/images/partex-pks.jpg",
       topic: "PARTEX PKS STAINLESS STEEL MARKERS",
     },
     {
+      id: "partex-06",
       title: "Heavy Duty Cable Ties & Mounts",
       desc: "Polyamide 6.6 and stainless steel cable ties with rounded edges to prevent wire jacket cut-through.",
       img: "/images/partex-ties.jpg",
@@ -50,7 +56,7 @@ export const AboutPartex: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 text-slate-900">
-      <div className="max-w-7xl mx-auto w-full space-y-10">
+      <div className="w-[95%] max-w-[1920px] mx-auto space-y-10">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-slate-500">
           <Link to="/" className="hover:text-emerald-600 transition-colors font-medium">

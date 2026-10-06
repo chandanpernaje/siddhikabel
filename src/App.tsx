@@ -15,9 +15,11 @@ import { CartDrawer } from "./components/ui/CartDrawer";
 import { AuthModal } from "./components/ui/AuthModal";
 import { AccountModal } from "./components/ui/AccountModal";
 
+import { ScrollToTop } from "./components/ScrollToTop";
 import { Home } from "./pages/Home";
 import { OlflexCables } from "./pages/OlflexCables";
 import { ProductDetail } from "./pages/ProductDetail";
+import { EatonProducts } from "./pages/EatonProducts";
 import { QuotationPage } from "./pages/QuotationPage";
 import { AboutLapp } from "./pages/AboutLapp";
 import { AboutEaton } from "./pages/AboutEaton";
@@ -31,6 +33,7 @@ export const App: React.FC = () => {
       <AuthProvider>
         <CartProvider>
           <Router basename={import.meta.env.BASE_URL}>
+          <ScrollToTop />
             <div className="min-h-screen w-full flex flex-col bg-slate-100/80 text-slate-900 selection:bg-amber-500 selection:text-white relative overflow-x-hidden">
               {/* Subtle ambient lighting mesh to remove flat white look */}
               <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-40">
@@ -48,6 +51,7 @@ export const App: React.FC = () => {
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/olflex-cables" element={<OlflexCables />} />
+            <Route path="/eaton-products" element={<EatonProducts />} />
                     <Route path="/product-detail" element={<ProductDetail />} />
                     <Route path="/product/:id" element={<ProductDetail />} />
                     <Route path="/quotation" element={<QuotationPage />} />

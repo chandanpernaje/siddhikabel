@@ -1,69 +1,21 @@
 import React, { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Zap, ShieldCheck, ChevronDown, ChevronUp } from "lucide-react";
 import { RFQModal } from "../components/ui/RFQModal";
 import type { OlflexProduct } from "../types";
 import {
-  OLFLEX_110_PRODUCTS,
-  OLFLEX_110SY_PRODUCTS,
-  OLFLEX_110CY_PRODUCTS,
-  OLFLEX_100I_PRODUCTS,
-} from "../data/olflexData";
-import { NEW_LAPP_OTHER_PRODUCTS } from "../data/lappOtherData";
-import { NEW_OLFLEX_PRODUCTS } from "../data/olflexNewData";
+  UNITRONIC_110_PRODUCTS,
+  UNITRONIC_110SY_PRODUCTS,
+  UNITRONIC_110CY_PRODUCTS,
+  UNITRONIC_100I_PRODUCTS,
+} from "../data/unitronicData";
 
+const UNITRONIC_LIYCY = NEW_LAPP_OTHER_PRODUCTS.filter(p => p.name.includes('LiYCY'));
+const UNITRONIC_LIYY = NEW_LAPP_OTHER_PRODUCTS.filter(p => p.name.includes('LiYY'));
 
-// Helper to group UNITRONIC / SKINTOP / SILVYN products
-const groupProducts = (prefix: string, data: OlflexProduct[]) => {
-  const filtered = data.filter(p => p.name.includes(prefix));
-  const groups: Record<string, OlflexProduct[]> = {};
-  
-  filtered.forEach(p => {
-    let seriesName = prefix;
-    if (prefix === "UNITRONIC") {
-      if (p.name.includes("LiYCY (TP)")) seriesName = "UNITRONIC® LiYCY (TP)";
-      else if (p.name.includes("LiYCY")) seriesName = "UNITRONIC® LiYCY";
-      else if (p.name.includes("LiYY (TP)")) seriesName = "UNITRONIC® LiYY (TP)";
-      else if (p.name.includes("LiYY")) seriesName = "UNITRONIC® LiYY";
-      else if (p.name.includes("LIYY")) seriesName = "UNITRONIC® LiYY";
-      else seriesName = "UNITRONIC® Other";
-    } else if (prefix === "SKINTOP") {
-      if (p.name.includes("ST-M")) seriesName = "SKINTOP® ST-M";
-      else if (p.name.includes("GMP-GL-M")) seriesName = "SKINTOP® GMP-GL-M";
-      else seriesName = "SKINTOP® Other";
-    } else if (prefix === "SILVYN") {
-      if (p.name.includes("KLICK")) seriesName = "SILVYN® KLICK";
-      else if (p.name.includes("RILL")) seriesName = "SILVYN® RILL";
-      else seriesName = "SILVYN® Other";
-    }
-    
-    if (!groups[seriesName]) groups[seriesName] = [];
-    groups[seriesName].push(p);
-  });
-  
-  return Object.entries(groups).map(([title, items], idx) => ({
-    id: `${prefix.toLowerCase()}-${idx}`,
-    title,
-    data: items,
-    image: prefix === "UNITRONIC" ? "/images/card-unitronic.jpg" 
-           : prefix === "SKINTOP" ? "/images/card-skintop.jpg"
-           : "/images/card-conduit.jpg"
-  }));
-};
-
-const UNITRONIC_SECTIONS = groupProducts("UNITRONIC", NEW_LAPP_OTHER_PRODUCTS);
-const SKINTOP_SECTIONS = groupProducts("SKINTOP", NEW_LAPP_OTHER_PRODUCTS);
-const SILVYN_SECTIONS = groupProducts("SILVYN", NEW_LAPP_OTHER_PRODUCTS);
-const UNIPLUS_SECTIONS = groupProducts("UNIPLUS", NEW_OLFLEX_PRODUCTS);
-const INFRA_SECTIONS = groupProducts("INFRA", NEW_OLFLEX_PRODUCTS);
-
-
-
-const OLFLEX_SECTIONS = [
-  { id: '110', title: 'ÖLFLEX® CLASSIC 110', data: OLFLEX_110_PRODUCTS, image: '/images/cable-olflex-cores.png' },
-  { id: '110sy', title: 'ÖLFLEX® CLASSIC 110 SY', data: OLFLEX_110SY_PRODUCTS, image: '/images/products/lapp-02.jpg' },
-  { id: '110cy', title: 'ÖLFLEX® CLASSIC 110 CY', data: OLFLEX_110CY_PRODUCTS, image: '/images/products/lapp-03.jpg' },
-  { id: '100', title: 'ÖLFLEX® CLASSIC 100I', data: OLFLEX_100I_PRODUCTS, image: '/images/products/lapp-01.jpg' }
+const SECTIONS = [
+  { id: 'liycy', title: 'UNITRONIC® LiYCY', data: UNITRONIC_LIYCY, image: '/images/cable-olflex-cores.png' },
+  { id: 'liyy', title: 'UNITRONIC® LiYY', data: UNITRONIC_LIYY, image: '/images/products/lapp-02.jpg' }
 ];
 
 const CompactCableCard = ({ product, image, onQuote }: { product: OlflexProduct, image: string, onQuote: (p: OlflexProduct) => void }) => {
@@ -80,39 +32,17 @@ const CompactCableCard = ({ product, image, onQuote }: { product: OlflexProduct,
             LAPP
           </span>
         </div>
-                <Link to={`/product/${product.partNo}`} className="block w-full">
+        <Link to={`/product/${product.partNo}`} className="block w-full">
           <h4 className="text-[12px] sm:text-sm font-bold text-slate-900 group-hover:text-orange-700 transition-colors line-clamp-2 leading-snug">
             {product.name}
           </h4>
         </Link>
-        {product.size ? (
-          <div className="text-[11px] sm:text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded-md mt-1 border border-slate-200">
-            {product.core ? `${product.core}X${product.size}` : product.size}
-          </div>
-        ) : null}
       </div>
     </div>
   )
 }
 
-export const OlflexCables: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const groupParam = searchParams.get("group") || "olflex";
-  
-  let SECTIONS = OLFLEX_SECTIONS;
-  if (groupParam === "unitronic") SECTIONS = UNITRONIC_SECTIONS;
-  else if (groupParam === "skintop") SECTIONS = SKINTOP_SECTIONS;
-  else if (groupParam === "silvyn") SECTIONS = SILVYN_SECTIONS;
-  else if (groupParam === "uniplus") SECTIONS = UNIPLUS_SECTIONS;
-  else if (groupParam === "infra") SECTIONS = INFRA_SECTIONS;
-  
-  const groupTitle = groupParam === "unitronic" ? "UNITRONIC® Data Cables" 
-                   : groupParam === "skintop" ? "SKINTOP® Cable Glands"
-                   : groupParam === "silvyn" ? "SILVYN® Conduits"
-                   : groupParam === "uniplus" ? "UNIPLUS® Single Cores"
-                   : groupParam === "infra" ? "LAPP INFRA Building Wires"
-                   : "ÖLFLEX® Industrial Flexible Control Cables";
-
+export const UnitronicCables: React.FC = () => {
   const [rfqModalOpen, setRfqModalOpen] = useState(false);
   const [rfqProductName, setRfqProductName] = useState<string | null>(null);
   const [rfqProductPrice, setRfqProductPrice] = useState<number | null>(null);
@@ -179,7 +109,7 @@ export const OlflexCables: React.FC = () => {
             LAPP Kabel
           </Link>
           <span>/</span>
-          <span className="text-slate-900 font-bold">{groupParam === "olflex" ? "ÖLFLEX® Cable Center" : groupTitle}</span>
+          <span className="text-slate-900 font-bold">UNITRONIC® Cable Center</span>
         </div>
 
         {/* Hero Header */}
@@ -189,7 +119,9 @@ export const OlflexCables: React.FC = () => {
               <Zap className="w-4 h-4 text-amber-600" />
               <span>Official German Cable Configurator · Direct Stockist</span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">{groupTitle}</h1>
+            <h1 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              UNITRONIC® Industrial Flexible Control Cables
+            </h1>
             <p className="text-sm text-slate-600 leading-relaxed">
               Engineered by LAPP Stuttgart. High flexibility, chemical and oil resistance according to DIN EN 50290-2-22, and VDE registration. Over 100+ standard configurations available with same-day dispatch from our Bangalore central warehouse.
             </p>
@@ -208,28 +140,12 @@ export const OlflexCables: React.FC = () => {
           </div>
         </div>
 
-        
         {/* Filter Buttons */}
         <div className="flex flex-col gap-4">
-          
           <div className="flex overflow-x-auto hide-scrollbar bg-slate-100/50 p-1.5 rounded-2xl border border-slate-200 gap-1 items-center">
-            <button 
-              onClick={() => setActiveFilter('all')}
-              className={`whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all ${activeFilter === 'all' ? 'bg-amber-500 text-white shadow-sm ring-2 ring-amber-300 ring-offset-1' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'}`}
-            >
-              All {groupParam === 'olflex' ? 'ÖLFLEX®' : groupParam.toUpperCase() + '®'} ({allProducts.length})
-            </button>
-            {SECTIONS.map(sec => (
-              <button 
-                key={sec.id}
-                onClick={() => setActiveFilter(sec.id)}
-                className={`whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${activeFilter === sec.id ? 'bg-amber-500 text-white shadow-sm ring-2 ring-amber-300 ring-offset-1' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'}`}
-              >
-                {sec.title}
-              </button>
-            ))}
+            
+            
           </div>
-
         </div>
 
         {/* Search & Filters Container */}
