@@ -599,20 +599,22 @@ export const Home: React.FC = () => {
             const bStyle = brandStyles[brand.id] || brandStyles.partex;
             
             // Map the link to dedicated pages
-            const brandLink = brand.id === "lapp" ? "/olflex-cables" : brand.id === "mennekes" ? "/about-mennekes" : "/#contact";
+            const brandLink = `/about-${brand.id}`;
 
             return (
               <div id={`brand-section-${brand.id}`} key={brand.id} className="space-y-4 lg:space-y-5 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 {/* Brand Header */}
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b-2 border-slate-200 pb-4">
                   <div className="flex items-center gap-4 sm:gap-6">
-                    <div className="bg-white p-2.5 rounded-2xl border border-slate-200 shadow-sm h-14 sm:h-16 w-32 sm:w-40 flex items-center justify-center shrink-0">
+                    <Link to={brandLink} onClick={() => window.scrollTo(0,0)} className="bg-white p-2.5 rounded-2xl border border-slate-200 shadow-sm h-14 sm:h-16 w-32 sm:w-40 flex items-center justify-center shrink-0 hover:border-blue-400 hover:shadow-md transition-all">
                       <img src={brand.logo} alt={brand.name} className="max-h-8 sm:max-h-10 w-auto object-contain" />
-                    </div>
+                    </Link>
                     <div className="space-y-1">
-                      <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                        {brand.name.split(" ")[0]} <span className={bStyle.text}>Products</span>
-                      </h3>
+                      <Link to={brandLink} onClick={() => window.scrollTo(0,0)} className="hover:opacity-80 transition-opacity">
+                        <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                          {brand.name.split(" ")[0]} <span className={bStyle.text}>Products</span>
+                        </h3>
+                      </Link>
                       <p className="hidden sm:block text-sm text-slate-500 font-medium max-w-xl line-clamp-1">{brand.description}</p>
                     </div>
                   </div>
@@ -620,6 +622,7 @@ export const Home: React.FC = () => {
                   {brandProducts.length > 6 && (
                     <Link
                       to={brandLink}
+                      onClick={() => window.scrollTo(0,0)}
                       className={`hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white ${bStyle.bg} ${bStyle.hover} transition-all hover:scale-105 shadow-md shrink-0`}
                     >
                       View More
@@ -645,6 +648,7 @@ export const Home: React.FC = () => {
                   <div className="sm:hidden flex justify-center pt-2">
                     <Link
                       to={brandLink}
+                      onClick={() => window.scrollTo(0,0)}
                       className={`flex w-full justify-center items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white ${bStyle.bg} shadow-md`}
                     >
                       View All {brand.name.split(" ")[0]}

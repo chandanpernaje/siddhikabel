@@ -177,16 +177,32 @@ export const ProductDetail: React.FC = () => {
     }
     
     return Math.round(finalPrice * 100) / 100;
-  }, [product.price, product.brand, selectedCore, selectedSize, selectedEarth]);
+  }, [product.price, product.brand, selectedCore, selectedSize, selectedEarth, isSingleCore]);
+
+  const displayProductName = useMemo(() => {
+    if (!product.brand.includes("LAPP")) return product.name;
+
+    // Extract the base name without any trailing "2X0,5" or "3G1.5" etc.
+    let baseName = product.name;
+    const match = baseName.match(/^(.*?)(\s+\d+[XG]\d+(?:[.,]\d+)?.*)?$/i);
+    if (match && match[1]) {
+      baseName = match[1].trim();
+    }
+
+    if (isSingleCore) {
+      const sizeStr = selectedSize.replace(' Sqmm', '').replace('.', ',');
+      return `${baseName} 1X${sizeStr} ${selectedColor}`;
+    }
+
+    const coreNum = parseInt(selectedCore.split(' ')[0]) || 2;
+    const sizeStr = selectedSize.replace(' Sqmm', '').replace('.', ','); // LAPP typically uses commas for decimals
+    const earthChar = selectedEarth === 'With (Yellow/Green - G)' ? 'G' : 'X';
+    
+    return `${baseName} ${coreNum}${earthChar}${sizeStr}`;
+  }, [product.name, product.brand, isSingleCore, selectedCore, selectedSize, selectedEarth, selectedColor]);
 
   const handleAddToCart = () => {
-    const variantName = product.brand.includes("LAPP") 
-      ? isSingleCore 
-        ? `${product.name} (${selectedSize}, ${selectedColor})`
-        : `${product.name} (${selectedCore}, ${selectedSize}, ${selectedEarth === 'With (Yellow/Green - G)' ? 'With Earth' : 'Without Earth'})`
-      : product.name;
-
-    addToCart({ ...product, name: variantName, price: calculatedPrice }, qty);
+    addToCart({ ...product, name: displayProductName, price: calculatedPrice }, qty);
     openCart();
   };
 
@@ -356,7 +372,7 @@ export const ProductDetail: React.FC = () => {
               </div>
 
               <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-snug mb-6">
-                {product.name}
+                {displayProductName}
               </h1>
             </div>
 
@@ -370,14 +386,14 @@ export const ProductDetail: React.FC = () => {
                     {!isSingleCore && (
                       <div>
                         <label className="font-bold text-slate-800 text-sm block mb-2">1. Core</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className="flex flex-wrap gap-2">
                           {['2 Core', '3 Core', '4 Core', '5 Core', '6 Core', '7 Core', '8 Core', '10 Core', '12 Core', '14 Core', '16 Core', '18 Core', '20 Core', '25 Core', '30 Core', '34 Core', '40 Core', '50 Core'].map(core => (
                             <button
                               key={core}
                               onClick={() => setSelectedCore(core)}
-                              className={`h-9 w-full flex items-center justify-center px-1 text-xs font-bold rounded-lg border transition-colors ${selectedCore === core ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
+                              className={`h-9 min-w-[3rem] px-2 flex items-center justify-center text-xs font-bold rounded-lg border transition-colors ${selectedCore === core ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
                             >
-                              {core}
+                              {core.replace(' Core', '')}
                             </button>
                           ))}
                         </div>
@@ -386,14 +402,14 @@ export const ProductDetail: React.FC = () => {
 
                     <div>
                       <label className="font-bold text-slate-800 text-sm block mb-2">{isSingleCore ? '1. Size (Sqmm)' : '2. Size (Sqmm)'}</label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="flex flex-wrap gap-2">
                         {['0.5 Sqmm', '0.75 Sqmm', '1 Sqmm', '1.5 Sqmm', '2.5 Sqmm', '4 Sqmm', '6 Sqmm', '10 Sqmm', '16 Sqmm', '25 Sqmm', '35 Sqmm'].map(size => (
                           <button
                             key={size}
                             onClick={() => setSelectedSize(size)}
-                            className={`h-9 w-full flex items-center justify-center px-1 text-xs font-bold rounded-lg border transition-colors ${selectedSize === size ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
+                            className={`h-9 min-w-[3.5rem] px-2 flex items-center justify-center text-xs font-bold rounded-lg border transition-colors ${selectedSize === size ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
                           >
-                            {size}
+                            {size.replace(' Sqmm', '')}
                           </button>
                         ))}
                       </div>
