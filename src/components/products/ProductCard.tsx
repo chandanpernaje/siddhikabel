@@ -120,17 +120,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               />
             </Link>
           ) : (
-            <img
-              src={product.image}
-              alt={product.name}
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-contain p-1 sm:p-2 group-hover:scale-108 transition-transform duration-500 ease-out drop-shadow-sm"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.onerror = null;
-                target.src = "/images/card-olflex.jpg";
-              }}
-            />
+            <Link to={`/product/${product.id}`} className="w-full h-full block">
+              <img
+                src={product.image}
+                alt={product.name}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-contain p-1 sm:p-2 group-hover:scale-108 transition-transform duration-500 ease-out drop-shadow-sm"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "/images/card-olflex.jpg";
+                }}
+              />
+            </Link>
           )
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 bg-white/60 rounded-lg">
@@ -158,11 +160,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             {product.name}
           </Link>
         ) : (
-          <div
-            className={`text-[12px] sm:text-sm font-bold text-slate-900 transition-colors line-clamp-2 leading-snug`}
+          <Link
+            to={`/product/${product.id}`}
+            onClick={() => window.scrollTo(0,0)}
+            className={`text-[12px] sm:text-sm font-bold text-slate-900 ${style.titleHover} transition-colors line-clamp-2 leading-snug`}
           >
             {product.name}
-          </div>
+          </Link>
         )}
       </div>
     </div>

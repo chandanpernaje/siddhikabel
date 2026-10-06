@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
-import { PRODUCTS_DATA } from "../../data/products";
+import { PRODUCTS_DATA, ALL_OLFLEX_PRODUCTS } from "../../data/products";
 
 export const Header: React.FC = () => {
   const { totalItems, subtotal, openCart } = useCart();
@@ -24,18 +24,32 @@ export const Header: React.FC = () => {
   const location = useLocation();
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const allSearchableProducts = useMemo(() => {
+    const olflexMapped = ALL_OLFLEX_PRODUCTS.map(p => ({
+      id: p.partNo,
+      name: p.name,
+      partNo: p.partNo,
+      brand: p.brand || "LAPP KABEL",
+      price: p.price,
+      unit: "meter",
+      image: "/images/cable-olflex-cores.png",
+      application: p.desc || "Industrial Cable",
+    }));
+    return [...PRODUCTS_DATA, ...olflexMapped];
+  }, []);
+
   // Filter products based on search query
   const filteredProducts = useMemo(() => {
     if (!searchQuery.trim()) return [];
     const q = searchQuery.toLowerCase().trim();
-    return PRODUCTS_DATA.filter(
+    return allSearchableProducts.filter(
       (p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.partNo.toLowerCase().includes(q) ||
-        p.brand.toLowerCase().includes(q) ||
+        (p.name && p.name.toLowerCase().includes(q)) ||
+        (p.partNo && p.partNo.toLowerCase().includes(q)) ||
+        (p.brand && p.brand.toLowerCase().includes(q)) ||
         (p.application && p.application.toLowerCase().includes(q))
     ).slice(0, 8); // Show max 8 results
-  }, [searchQuery]);
+  }, [searchQuery, allSearchableProducts]);
 
   // Reset highlighted index when results change
   useEffect(() => {
