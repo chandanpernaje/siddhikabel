@@ -18,7 +18,7 @@ export const TopBar: React.FC = () => {
           </a>
         </div>
 
-        {/* Right Side: Contact Info */}
+        {/* Contact Info */}
         <div className="flex items-center gap-4 sm:gap-6">
           <a
             href="tel:+919620000947"

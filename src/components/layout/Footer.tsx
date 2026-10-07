@@ -8,6 +8,9 @@ import {
   Clock,
   ShieldCheck,
   FileText,
+  Facebook,
+  Twitter,
+  Linkedin
 } from "lucide-react";
 
 export const Footer: React.FC = () => {
@@ -31,6 +34,18 @@ export const Footer: React.FC = () => {
           <p className="text-slate-600 leading-relaxed max-w-sm">
             Siddhi Kabel Corporation Private Limited is one of the leading and reliable suppliers of world class Industrial Electrical, Automation & Safety Products with over 15 years of industry experience.
           </p>
+          
+          <div className="flex items-center gap-3 pt-2">
+            <a href="https://www.facebook.com/siddhikabel/" target="_blank" rel="noopener noreferrer" className="p-2 bg-white text-slate-500 hover:text-white hover:bg-[#1877F2] rounded-full transition-all border border-slate-200 hover:border-[#1877F2] shadow-sm" aria-label="Facebook">
+              <Facebook className="w-4 h-4" />
+            </a>
+            <a href="https://x.com/siddhikabel" target="_blank" rel="noopener noreferrer" className="p-2 bg-white text-slate-500 hover:text-white hover:bg-slate-900 rounded-full transition-all border border-slate-200 hover:border-slate-900 shadow-sm" aria-label="Twitter">
+              <Twitter className="w-4 h-4" />
+            </a>
+            <a href="#" className="p-2 bg-white text-slate-500 hover:text-white hover:bg-[#0A66C2] rounded-full transition-all border border-slate-200 hover:border-[#0A66C2] shadow-sm" aria-label="LinkedIn">
+              <Linkedin className="w-4 h-4" />
+            </a>
+          </div>
         </div>
 
         {/* Col 2: Brand Portfolios */}

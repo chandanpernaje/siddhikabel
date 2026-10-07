@@ -210,20 +210,20 @@ export const Header: React.FC = () => {
                 className="hidden sm:flex h-9 w-9 sm:h-11 sm:w-auto px-0 sm:px-3 rounded-lg sm:rounded-xl bg-white sm:bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-800 hover:text-slate-900 hover:bg-slate-200 transition-colors items-center justify-center gap-1.5 shrink-0"
               >
                 <User className="w-[18px] h-[18px] sm:w-3.5 sm:h-3.5 text-red-600 shrink-0" />
-                <span className="hidden sm:inline">Sign In</span>
+                <span className="hidden sm:inline">Sign In / Sign Up</span>
               </button>
             )}
 
             {/* Quotation Cart Button */}
             <button
               onClick={openCart}
-              className="flex items-center justify-center gap-2 sm:gap-2.5 h-9 w-9 sm:h-11 sm:w-auto px-0 sm:px-4 rounded-lg sm:rounded-xl bg-[#c52328] sm:bg-gradient-to-r sm:from-red-600 sm:via-red-700 sm:to-red-800 hover:opacity-90 sm:hover:from-red-700 sm:hover:to-red-900 text-white font-bold transition-all group relative active:scale-95 border border-transparent sm:border-red-500/40 shrink-0 shadow-none sm:shadow-md sm:shadow-red-600/20"
+              className="flex items-center justify-center gap-2 sm:gap-2.5 h-9 w-9 sm:h-11 sm:w-auto px-0 sm:px-3 rounded-lg sm:rounded-xl bg-[#c52328] sm:bg-gradient-to-r sm:from-red-600 sm:via-red-700 sm:to-red-800 hover:opacity-90 sm:hover:from-red-700 sm:hover:to-red-900 text-white font-bold transition-all group relative active:scale-95 border border-transparent sm:border-red-500/40 shrink-0 shadow-none sm:shadow-md sm:shadow-red-600/20"
               aria-label="Quotation Cart"
             >
               <div className="relative shrink-0 flex items-center justify-center">
                 <ShoppingCart className="w-[18px] h-[18px] sm:w-4 sm:h-4 text-white sm:group-hover:scale-105 transition-transform" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-[14px] -right-[14px] sm:-top-2.5 sm:-right-2.5 bg-slate-600 sm:bg-zinc-900 text-white border-2 border-white sm:border-zinc-700 font-bold sm:font-black text-[9px] rounded-full w-5 h-5 sm:w-4 sm:h-4 flex items-center justify-center tabular-nums shadow-sm">
+                  <span className="absolute -top-3 -right-3 sm:-top-2.5 sm:-right-3.5 bg-slate-600 sm:bg-zinc-900 text-white border-2 border-white sm:border-zinc-700 font-bold sm:font-black text-[9px] rounded-full min-w-[20px] px-1 h-5 flex items-center justify-center tabular-nums shadow-sm">
                     {totalItems > 99 ? "99+" : totalItems}
                   </span>
                 )}
