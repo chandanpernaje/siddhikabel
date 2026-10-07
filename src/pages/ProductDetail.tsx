@@ -344,16 +344,7 @@ export const ProductDetail: React.FC = () => {
               ))}
             </div>
 
-            {/* Quick Fact sheet */}
-            <div className="rounded-2xl bg-white border border-slate-200 p-5 space-y-2 text-xs shadow-2xs">
-              <h4 className="font-bold text-slate-900 flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-amber-500" />
-                <span>Authorized Distribution Compliance</span>
-              </h4>
-              <p className="text-slate-600 leading-relaxed font-medium">
-                Supplied under official warranty directly from LAPP Kabel / EATON manufacturing plants. Test reports and factory inspection certificates are issued with every dispatch drum.
-              </p>
-            </div>
+
           </div>
 
           {/* Right Column: Contiguous Purchase Module (6 Cols) */}
@@ -407,7 +398,7 @@ export const ProductDetail: React.FC = () => {
                           <button
                             key={size}
                             onClick={() => setSelectedSize(size)}
-                            className={`h-9 min-w-[3.5rem] px-2 flex items-center justify-center text-xs font-bold rounded-lg border transition-colors ${selectedSize === size ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
+                            className={`h-9 min-w-[3rem] px-2 flex items-center justify-center text-xs font-bold rounded-lg border transition-colors ${selectedSize === size ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-amber-400 hover:bg-amber-50'}`}
                           >
                             {size.replace(' Sqmm', '')}
                           </button>
@@ -532,7 +523,7 @@ export const ProductDetail: React.FC = () => {
 
 
               {/* CTAs */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="grid grid-cols-1 gap-3 pt-2">
                 <button
                   onClick={handleAddToCart}
                   className={`py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95 ${
@@ -552,14 +543,6 @@ export const ProductDetail: React.FC = () => {
                       <span>Add to Quote Cart</span>
                     </>
                   )}
-                </button>
-
-                <button
-                  onClick={handleInstantQuote}
-                  className="py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-amber-500/20 transition-all active:scale-95"
-                >
-                  <span>Request Quotation (RFQ)</span>
-                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
 

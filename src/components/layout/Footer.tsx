@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { RFQModal } from "../ui/RFQModal";
 import { Link } from "react-router-dom";
 import {
   Phone,
@@ -10,6 +11,8 @@ import {
 } from "lucide-react";
 
 export const Footer: React.FC = () => {
+  const [rfqModalOpen, setRfqModalOpen] = useState(false);
+
   return (
     <footer id="contact" className="bg-sky-50 border-t border-sky-100 text-slate-600 text-xs">
 
@@ -96,9 +99,9 @@ export const Footer: React.FC = () => {
               </a>
             </li>
             <li>
-              <Link to="/quotation" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors font-medium text-blue-400">
-                Official GST Quotation Page
-              </Link>
+              <button onClick={() => setRfqModalOpen(true)} className="hover:text-blue-400 transition-colors font-medium text-blue-400 text-left">
+                Request for Quotation (RFQ) Form
+              </button>
             </li>
           </ul>
         </div>
@@ -160,6 +163,12 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <RFQModal
+        isOpen={rfqModalOpen}
+        onClose={() => setRfqModalOpen(false)}
+        productName="General RFQ Inquiry"
+      />
     </footer>
   );
 };
