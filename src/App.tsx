@@ -14,6 +14,7 @@ import { Footer } from "./components/layout/Footer";
 import { CartDrawer } from "./components/ui/CartDrawer";
 import { AuthModal } from "./components/ui/AuthModal";
 import { AccountModal } from "./components/ui/AccountModal";
+import { BackToTopButton } from "./components/ui/BackToTopButton";
 
 import { ScrollToTop } from "./components/ScrollToTop";
 import { Home } from "./pages/Home";
@@ -71,6 +72,7 @@ export const App: React.FC = () => {
               <CartDrawer />
               <AuthModal />
               <AccountModal />
+              <BackToTopButton />
             </div>
           </Router>
         </CartProvider>
