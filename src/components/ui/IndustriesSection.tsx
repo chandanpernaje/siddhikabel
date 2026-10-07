@@ -57,7 +57,7 @@ export const IndustriesSection: React.FC = () => {
   ];
 
   return (
-    <section id="industries" className="w-full scroll-mt-24 py-16 lg:py-24 bg-slate-50 border-y border-slate-200">
+    <section id="industries" className="w-full scroll-mt-24 pt-16 lg:pt-24 pb-0 bg-slate-50 border-y border-slate-200">
       <div className="w-[95%] max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -128,9 +128,10 @@ export const IndustriesSection: React.FC = () => {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Value Proposition / Expertise */}
-        <div className="bg-slate-900 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
+      {/* Value Proposition / Expertise */}
+      <div className="bg-slate-900 p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-300 via-transparent to-transparent"></div>
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-amber-500/20 rounded-full blur-3xl"></div>
           
@@ -168,8 +169,6 @@ export const IndustriesSection: React.FC = () => {
             </div>
           </div>
         </div>
-
-      </div>
     </section>
   );
 };

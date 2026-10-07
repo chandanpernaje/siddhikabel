@@ -429,7 +429,7 @@ export const Home: React.FC = () => {
       {/* HERO BANNER CAROUSEL SLIDER                               */}
       {/* ======================================================== */}
       <section className="w-full text-slate-900 bg-white border-b border-slate-200 shadow-sm relative overflow-hidden">
-        <div className="w-full relative w-[95%] max-w-[1920px] mx-auto">
+        <div className="w-full relative">
           <div className="relative" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
             {slides.map((slide, idx) => {
               const isActive = idx === currentSlide;
@@ -459,8 +459,9 @@ export const Home: React.FC = () => {
               return (
                 <div
                   key={slide.brand}
-                  className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 md:p-12 min-h-[460px] md:min-h-[500px] relative z-10 animate-in fade-in duration-500 ${slide.bgClass}`}
+                  className={`w-full relative z-10 animate-in fade-in duration-500 ${slide.bgClass}`}
                 >
+                  <div className="w-[95%] max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-10 md:py-12 min-h-[460px] md:min-h-[500px]">
                   {/* Left Side — Text Container */}
                   <div className="lg:col-span-7 flex flex-col justify-center space-y-5 z-10">
                     {/* Brand Logo & Country Origin Pill */}
@@ -539,6 +540,7 @@ export const Home: React.FC = () => {
                         <Zap className={`w-4 h-4 ${slide.iconColor}`} />
                       </div>
                     </div>
+                  </div>
                   </div>
                 </div>
               );
